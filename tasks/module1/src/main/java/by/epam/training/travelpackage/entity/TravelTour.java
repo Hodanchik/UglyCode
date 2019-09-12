@@ -9,10 +9,6 @@ public class TravelTour {
     private int duration;
     private double price;
 
-
-    public TravelTour() {
-    }
-
     public TravelTour(TransportType transportType, NutritionType nutritionType, int duration, double price) {
         this.transportType = transportType;
         this.nutritionType = nutritionType;

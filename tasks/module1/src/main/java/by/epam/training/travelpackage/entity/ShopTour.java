@@ -6,12 +6,8 @@ public class ShopTour extends TravelTour {
     private String city;
     private boolean visitDutyFree;
 
-    public ShopTour() {
-    }
-
-    public ShopTour(String city, boolean visitDutyFree) {
-        this.city = city;
-        this.visitDutyFree = visitDutyFree;
+    public ShopTour(TransportType transportType, NutritionType nutritionType, int duration, double price) {
+        super(transportType, nutritionType, duration, price);
     }
 
     public ShopTour(TransportType transportType, NutritionType nutritionType, int duration, double price, String city, boolean visitDutyFree) {

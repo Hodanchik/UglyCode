@@ -8,14 +8,8 @@ public class RelaxTour extends TravelTour {
     private boolean haveSea;
     private HotelStars hotelStars;
 
-    public RelaxTour() {
-    }
-
-    public RelaxTour(String city, boolean hotCountry, boolean haveSea, HotelStars hotelStars) {
-        this.city = city;
-        this.hotCountry = hotCountry;
-        this.haveSea = haveSea;
-        this.hotelStars = hotelStars;
+    public RelaxTour(TransportType transportType, NutritionType nutritionType, int duration, double price) {
+        super(transportType, nutritionType, duration, price);
     }
 
     public RelaxTour(TransportType transportType, NutritionType nutritionType, int duration, double price, String city, boolean hotCountry, boolean haveSea, HotelStars hotelStars) {

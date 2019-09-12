@@ -6,12 +6,8 @@ public class MedicalTour extends TravelTour {
     private boolean medicalSupport;
     private String city;
 
-    public MedicalTour() {
-    }
-
-    public MedicalTour(boolean medicalSupport, String city) {
-        this.medicalSupport = medicalSupport;
-        this.city = city;
+    public MedicalTour(TransportType transportType, NutritionType nutritionType, int duration, double price) {
+        super(transportType, nutritionType, duration, price);
     }
 
     public MedicalTour(TransportType transportType, NutritionType nutritionType, int duration, double price, boolean medicalSupport, String city) {

@@ -7,13 +7,8 @@ public class ExcursionTour extends TravelTour {
     private boolean localGuide;
     private boolean nightMoving;
 
-    public ExcursionTour() {
-    }
-
-    public ExcursionTour(int countCountry, boolean localGuide, boolean nightMoving) {
-        this.countCountry = countCountry;
-        this.localGuide = localGuide;
-        this.nightMoving = nightMoving;
+    public ExcursionTour(TransportType transportType, NutritionType nutritionType, int duration, double price) {
+        super(transportType, nutritionType, duration, price);
     }
 
     public ExcursionTour(TransportType transportType, NutritionType nutritionType, int duration, double price, int countCountry, boolean localGuide, boolean nightMoving) {
