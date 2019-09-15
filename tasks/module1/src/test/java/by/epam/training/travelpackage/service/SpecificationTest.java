@@ -13,7 +13,7 @@ public class SpecificationTest {
 
     @Before
     public void init() {
-        travelTourService.save(new TravelTour(TourType.MEDICAL, TransportType.AIRPLANE, NutritionType.AIP, 6, 23.5));
+        travelTourService.save(new TravelTour(TourType.MEDICAL, TransportType.TRAIN, NutritionType.AIP, 6, 23.5));
         travelTourService.save(new TravelTour(TourType.SHOP, TransportType.AIRPLANE, NutritionType.AIP, 6, 23.5));
         travelTourService.save(new RelaxTour(TransportType.TRAIN, NutritionType.RO, 23, 8.99));
         travelTourService.save(new TravelTour(TourType.EXCURSION, TransportType.AIRPLANE, NutritionType.AI, 19, 213.5));
@@ -69,6 +69,17 @@ public class SpecificationTest {
         //assert
         Assert.assertNotNull(allByParametr);
         Assert.assertEquals(allByParametr.get(5).getPrice(), 8.99, 0);
+    }
+
+    @Test
+    public void SelectByTwoParametersSpecificationTest() {
+        //test
+        SelectByTourTypeSpecification spec = new SelectByTourTypeSpecification(TourType.RELAX);
+        Specification<TravelTour> and = spec.and(new SelectByTransportSpecification(TransportType.TRAIN));
+        List<TravelTour> allByParametr = travelTourService.findAllByParameter(and);
+        //assert
+        Assert.assertNotNull(allByParametr);
+        Assert.assertEquals(allByParametr.size(), 1);
     }
 }
 
