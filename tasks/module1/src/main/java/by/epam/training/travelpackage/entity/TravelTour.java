@@ -8,12 +8,14 @@ public class TravelTour {
     private NutritionType nutritionType;
     private int duration;
     private double price;
+    private TourType tourType;
 
-    public TravelTour(TransportType transportType, NutritionType nutritionType, int duration, double price) {
+    public TravelTour(TourType tourType, TransportType transportType, NutritionType nutritionType, int duration, double price) {
         this.transportType = transportType;
         this.nutritionType = nutritionType;
         this.duration = duration;
         this.price = price;
+        this.tourType = tourType;
     }
 
     public TransportType getTransportType() {
@@ -48,6 +50,14 @@ public class TravelTour {
         this.price = price;
     }
 
+    public TourType getTourType() {
+        return tourType;
+    }
+
+    public void setTourType(TourType tourType) {
+        this.tourType = tourType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,12 +66,13 @@ public class TravelTour {
         return getDuration() == that.getDuration() &&
                 Double.compare(that.getPrice(), getPrice()) == 0 &&
                 getTransportType() == that.getTransportType() &&
-                getNutritionType() == that.getNutritionType();
+                getNutritionType() == that.getNutritionType() &&
+                getTourType() == that.getTourType();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getTransportType(), getNutritionType(), getDuration(), getPrice());
+        return Objects.hash(getTransportType(), getNutritionType(), getDuration(), getPrice(), getTourType());
     }
 
     @Override
@@ -71,6 +82,7 @@ public class TravelTour {
                 ", nutritionType=" + nutritionType +
                 ", duration=" + duration +
                 ", price=" + price +
+                ", tourType=" + tourType +
                 '}';
     }
 }

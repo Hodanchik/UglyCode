@@ -6,13 +6,14 @@ public class ExcursionTour extends TravelTour {
     private int countCountry;
     private boolean localGuide;
     private boolean nightMoving;
+    private final TourType tourType = TourType.EXCURSION;
 
     public ExcursionTour(TransportType transportType, NutritionType nutritionType, int duration, double price) {
-        super(transportType, nutritionType, duration, price);
+        super(TourType.EXCURSION, transportType, nutritionType, duration, price);
     }
 
-    public ExcursionTour(TransportType transportType, NutritionType nutritionType, int duration, double price, int countCountry, boolean localGuide, boolean nightMoving) {
-        super(transportType, nutritionType, duration, price);
+    public ExcursionTour(TourType tourType, TransportType transportType, NutritionType nutritionType, int duration, double price, int countCountry, boolean localGuide, boolean nightMoving) {
+        super(tourType, transportType, nutritionType, duration, price);
         this.countCountry = countCountry;
         this.localGuide = localGuide;
         this.nightMoving = nightMoving;
@@ -43,6 +44,11 @@ public class ExcursionTour extends TravelTour {
     }
 
     @Override
+    public TourType getTourType() {
+        return tourType;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ExcursionTour)) return false;
@@ -50,12 +56,13 @@ public class ExcursionTour extends TravelTour {
         ExcursionTour that = (ExcursionTour) o;
         return getCountCountry() == that.getCountCountry() &&
                 isLocalGuide() == that.isLocalGuide() &&
-                isNightMoving() == that.isNightMoving();
+                isNightMoving() == that.isNightMoving() &&
+                getTourType() == that.getTourType();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getCountCountry(), isLocalGuide(), isNightMoving());
+        return Objects.hash(super.hashCode(), getCountCountry(), isLocalGuide(), isNightMoving(), getTourType());
     }
 
     @Override
@@ -64,6 +71,7 @@ public class ExcursionTour extends TravelTour {
                 "countCountry=" + countCountry +
                 ", localGuide=" + localGuide +
                 ", nightMoving=" + nightMoving +
+                ", tourType=" + tourType +
                 '}';
     }
 }

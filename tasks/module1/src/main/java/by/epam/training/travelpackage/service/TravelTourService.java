@@ -1,14 +1,14 @@
 package by.epam.training.travelpackage.service;
-
-import by.epam.training.travelpackage.entity.NutritionType;
-import by.epam.training.travelpackage.entity.TransportType;
+import by.epam.training.travelpackage.entity.BeanComparator;
 import by.epam.training.travelpackage.entity.TravelTour;
+import by.epam.training.travelpackage.repository.Repository;
+import by.epam.training.travelpackage.repository.Specification;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
-public class TravelTourService {
+public class TravelTourService implements Repository<TravelTour> {
     private List<TravelTour> travelTourList = new ArrayList<>();
 
     public TravelTourService() {
@@ -18,59 +18,59 @@ public class TravelTourService {
         this.travelTourList = travelTourList;
     }
 
-    public void save(TravelTour travelTour) {
-        travelTourList.add(travelTour);
-    }
-
     public List<TravelTour> getTravelTourList() {
         return travelTourList;
     }
 
-    public List<TravelTour> selectByTransport(TransportType transportType) {
+    @Override
+    public TravelTour find(Specification<TravelTour> specification){
+        for (TravelTour tour : travelTourList) {
+            if (specification.match(tour)) {
+                return tour;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void save(TravelTour travelTour) {
+        travelTourList.add(travelTour);
+    }
+
+    @Override
+    public void delete(TravelTour travelTour) {
+        for (TravelTour tour : travelTourList) {
+            if (tour.equals(travelTour)) {
+                travelTourList.remove(travelTour);
+            }
+        }
+    }
+    public List<TravelTour> findAllByParameter(Specification<TravelTour> specification){
         List<TravelTour> selectList = new ArrayList<>();
         for (TravelTour tour : travelTourList) {
-            if (tour.getTransportType().equals(transportType)) {
+            if (specification.match(tour)) {
                 selectList.add(tour);
             }
         }
         return selectList;
     }
 
-    public List<TravelTour> selectByNutrition(NutritionType nutritionType) {
-        List<TravelTour> selectList = new ArrayList<>();
+    public List<TravelTour> sortIncreasByParameter(Specification<TravelTour> specification, String parameter) {
         for (TravelTour tour : travelTourList) {
-            if (tour.getNutritionType().equals(nutritionType)) {
-                selectList.add(tour);
+            if (specification.match(tour)) {
+                Collections.sort(travelTourList, new BeanComparator(parameter));
+                return travelTourList;
             }
-        }
-        return selectList;
+        } return travelTourList;
     }
 
-    public List<TravelTour> selectByTourType(Class classType) {
-        List<TravelTour> selectList = new ArrayList<>();
+    public List<TravelTour> sortDescendenceByParameter(Specification<TravelTour> specification, String parameter) {
         for (TravelTour tour : travelTourList) {
-            if (tour.getClass().equals(classType)) {
-                selectList.add(tour);
+            if (specification.match(tour)) {
+                Collections.sort(travelTourList, new BeanComparator(parameter));
+                Collections.reverse(travelTourList);
+                return travelTourList;
             }
-        }
-        return selectList;
-    }
-
-    public List<TravelTour> sortIncreasByDuration() {
-        Collections.sort(travelTourList, Comparator.comparing(TravelTour::getDuration));
-        return travelTourList;
-    }
-
-    public List<TravelTour> sortDescendenceByDuration() {
-        Collections.sort(travelTourList, Comparator.comparing(TravelTour::getDuration));
-        Collections.reverse(travelTourList);
-        return travelTourList;
-    }
-
-    public List<TravelTour> sortIncreasByPriceAndDuration() {
-        Collections.sort(travelTourList, Comparator.comparing(TravelTour::getPrice)
-                .thenComparing(Comparator.comparing(TravelTour::getDuration)));
-        return travelTourList;
+        } return travelTourList;
     }
 }
-

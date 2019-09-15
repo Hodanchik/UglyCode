@@ -7,13 +7,14 @@ public class RelaxTour extends TravelTour {
     private boolean hotCountry;
     private boolean haveSea;
     private HotelStars hotelStars;
+    private final TourType tourType = TourType.RELAX;
 
     public RelaxTour(TransportType transportType, NutritionType nutritionType, int duration, double price) {
-        super(transportType, nutritionType, duration, price);
+        super(TourType.RELAX, transportType, nutritionType, duration, price);
     }
 
     public RelaxTour(TransportType transportType, NutritionType nutritionType, int duration, double price, String city, boolean hotCountry, boolean haveSea, HotelStars hotelStars) {
-        super(transportType, nutritionType, duration, price);
+        super(TourType.RELAX, transportType, nutritionType, duration, price);
         this.city = city;
         this.hotCountry = hotCountry;
         this.haveSea = haveSea;
@@ -52,6 +53,10 @@ public class RelaxTour extends TravelTour {
         this.hotelStars = hotelStars;
     }
 
+    public TourType getTourType() {
+        return tourType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -61,12 +66,13 @@ public class RelaxTour extends TravelTour {
         return isHotCountry() == relaxTour.isHotCountry() &&
                 isHaveSea() == relaxTour.isHaveSea() &&
                 getCity().equals(relaxTour.getCity()) &&
-                getHotelStars() == relaxTour.getHotelStars();
+                getHotelStars() == relaxTour.getHotelStars() &&
+                tourType == relaxTour.tourType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getCity(), isHotCountry(), isHaveSea(), getHotelStars());
+        return Objects.hash(super.hashCode(), getCity(), isHotCountry(), isHaveSea(), getHotelStars(), tourType);
     }
 
     @Override
@@ -76,6 +82,7 @@ public class RelaxTour extends TravelTour {
                 ", hotCountry=" + hotCountry +
                 ", haveSea=" + haveSea +
                 ", hotelStars=" + hotelStars +
+                ", tourType=" + tourType +
                 '}';
     }
 }
