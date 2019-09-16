@@ -1,8 +1,11 @@
 package by.epam.training.travelpackage.entity;
 
+import org.apache.log4j.Logger;
+
 import java.util.Objects;
 
 public class ExcursionTour extends TravelTour {
+    private static final Logger log = Logger.getLogger(ExcursionTour.class);
     private int countCountry;
     private boolean localGuide;
     private boolean nightMoving;

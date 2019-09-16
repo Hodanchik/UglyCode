@@ -25,50 +25,50 @@ public class SpecificationTest {
     public void SelectByNutritionSpecificationTest() {
         //test
         SelectByNutritionSpecification spec = new SelectByNutritionSpecification(NutritionType.RO);
-        List<TravelTour> allByParametr = travelTourService.findAllByParameter(spec);
+        List<TravelTour> allByParameter = travelTourService.findAllByParameter(spec);
         //assert
-        Assert.assertNotNull(allByParametr);
-        Assert.assertEquals(allByParametr.size(), 2);
+        Assert.assertNotNull(allByParameter);
+        Assert.assertEquals(allByParameter.size(), 2);
     }
 
     @Test
     public void SelectByTransportSpecificationTest() {
         //test
         SelectByTransportSpecification spec = new SelectByTransportSpecification(TransportType.TRAIN);
-        List<TravelTour> allByParametr = travelTourService.findAllByParameter(spec);
+        List<TravelTour> allByParameter = travelTourService.findAllByParameter(spec);
         //assert
-        Assert.assertNotNull(allByParametr);
-        Assert.assertEquals(allByParametr.size(), 1);
+        Assert.assertNotNull(allByParameter);
+        Assert.assertEquals(allByParameter.size(), 2);
     }
 
     @Test
     public void SelectByTourTypeSpecificationTest() {
         //test
         SelectByTourTypeSpecification spec = new SelectByTourTypeSpecification(TourType.RELAX);
-        List<TravelTour> allByParametr = travelTourService.findAllByParameter(spec);
+        List<TravelTour> allByParameter = travelTourService.findAllByParameter(spec);
         //assert
-        Assert.assertNotNull(allByParametr);
-        Assert.assertEquals(allByParametr.size(), 2);
+        Assert.assertNotNull(allByParameter);
+        Assert.assertEquals(allByParameter.size(), 2);
     }
 
     @Test
     public void SortIncreasByParameterSpecificationTest() {
         //test
         SortIncreasByParameterSpecification spec = new SortIncreasByParameterSpecification("duration");
-        List<TravelTour> allByParametr = travelTourService.sortIncreasByParameter(spec, "duration");
+        List<TravelTour> allByParameter = travelTourService.sortIncreasByParameter(spec, "duration");
         //assert
-        Assert.assertNotNull(allByParametr);
-        Assert.assertEquals(allByParametr.get(5).getDuration(), 23);
+        Assert.assertNotNull(allByParameter);
+        Assert.assertEquals(allByParameter.get(5).getDuration(), 23);
     }
 
     @Test
     public void SortDescendenceByParameterTest() {
         //test
-        SortDescendenceByParameterSpecification spec = new SortDescendenceByParameterSpecification("duration");
-        List<TravelTour> allByParametr = travelTourService.sortDescendenceByParameter(spec, "price");
+        SortDescendenceByParameterSpecification spec = new SortDescendenceByParameterSpecification("price");
+        List<TravelTour> allByParameter = travelTourService.sortDescendenceByParameter(spec, "price");
         //assert
-        Assert.assertNotNull(allByParametr);
-        Assert.assertEquals(allByParametr.get(5).getPrice(), 8.99, 0);
+        Assert.assertNotNull(allByParameter);
+        Assert.assertEquals(allByParameter.get(5).getPrice(), 8.99, 0);
     }
 
     @Test
@@ -76,10 +76,10 @@ public class SpecificationTest {
         //test
         SelectByTourTypeSpecification spec = new SelectByTourTypeSpecification(TourType.RELAX);
         Specification<TravelTour> and = spec.and(new SelectByTransportSpecification(TransportType.TRAIN));
-        List<TravelTour> allByParametr = travelTourService.findAllByParameter(and);
+        List<TravelTour> allByParameter = travelTourService.findAllByParameter(and);
         //assert
-        Assert.assertNotNull(allByParametr);
-        Assert.assertEquals(allByParametr.size(), 1);
+        Assert.assertNotNull(allByParameter);
+        Assert.assertEquals(allByParameter.size(), 1);
     }
 }
 

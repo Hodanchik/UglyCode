@@ -1,8 +1,12 @@
 package by.epam.training.travelpackage.repository;
 import by.epam.training.travelpackage.entity.TransportType;
 import by.epam.training.travelpackage.entity.TravelTour;
+import org.apache.log4j.Logger;
 
 public class SelectByTransportSpecification implements Specification<TravelTour> {
+
+    private static final Logger log = Logger.getLogger(SelectByTransportSpecification.class);
+
     private final TransportType transportType;
 
     public SelectByTransportSpecification(TransportType transportType) {

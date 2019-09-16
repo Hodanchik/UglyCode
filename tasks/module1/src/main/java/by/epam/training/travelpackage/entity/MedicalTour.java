@@ -1,8 +1,11 @@
 package by.epam.training.travelpackage.entity;
 
+import org.apache.log4j.Logger;
+
 import java.util.Objects;
 
 public class MedicalTour extends TravelTour {
+    private static final Logger log = Logger.getLogger(MedicalTour.class);
     private boolean medicalSupport;
     private String city;
     private final TourType tourType = TourType.MEDICAL;

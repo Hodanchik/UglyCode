@@ -1,9 +1,12 @@
 package by.epam.training.travelpackage.entity;
 
 
+import org.apache.log4j.Logger;
+
 import java.util.Objects;
 
 public class TravelTour {
+    private static final Logger log = Logger.getLogger(TravelTour.class);
     private TransportType transportType;
     private NutritionType nutritionType;
     private int duration;

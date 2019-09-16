@@ -1,8 +1,11 @@
 package by.epam.training.travelpackage.entity;
 
+import org.apache.log4j.Logger;
+
 import java.util.Objects;
 
 public class ShopTour extends TravelTour {
+    private static final Logger log = Logger.getLogger(ShopTour.class);
     private String city;
     private boolean visitDutyFree;
     private final TourType tourType = TourType.SHOP;

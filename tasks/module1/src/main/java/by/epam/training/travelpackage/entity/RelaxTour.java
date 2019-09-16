@@ -1,8 +1,11 @@
 package by.epam.training.travelpackage.entity;
 
+import org.apache.log4j.Logger;
+
 import java.util.Objects;
 
 public class RelaxTour extends TravelTour {
+    private static final Logger log = Logger.getLogger(RelaxTour.class);
     private String city;
     private boolean hotCountry;
     private boolean haveSea;
