@@ -1,0 +1,9 @@
+tourType:MEDICAL,transportType:TRAIN,nutritionType:RO,duration:13,price:1798.99,medicalSupport:true,country:Russia
+tourType:MEDICAL,transportType:TRAIN,nutritionType:RO,duration:17,price:1200,medicalSupport:false,country:Belarus
+tourType:RELAX,transportType:BUS,nutritionType:AIP,duration:9,price:1877.99,country:Malta,hotCountry:true,haveSea:true,hotelStarsType:FOUR
+tourType:RELAX,transportType:BUS,nutritionType:AIP
+tourType:EXCURSION,transportType:BUS,localGuide:true,nightMoving:false
+tourType:EXCURSION,transportType:CRUISE_SHIP
+tourType:EXCURSION,transportType:BUS
+tourType:SHOP,transportType:BUS,nutritionType:RO,duration:2,price:89.99
+tourType:SHOP,transportType:BUS,nutritionType:RO,duration:2,price:79.99

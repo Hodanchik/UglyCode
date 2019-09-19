@@ -7,18 +7,23 @@ import java.util.Objects;
 public class MedicalTour extends TravelTour {
     private static final Logger log = Logger.getLogger(MedicalTour.class);
     private boolean medicalSupport;
-    private String city;
+    private String сountry;
     private final TourType tourType = TourType.MEDICAL;
+
+    public MedicalTour() {
+        super();
+    }
 
     public MedicalTour(TransportType transportType, NutritionType nutritionType, int duration, double price) {
         super(TourType.MEDICAL, transportType, nutritionType, duration, price);
     }
 
-    public MedicalTour(TransportType transportType, NutritionType nutritionType, int duration, double price, boolean medicalSupport, String city) {
+    public MedicalTour(TransportType transportType, NutritionType nutritionType, int duration, double price, boolean medicalSupport, String сountry) {
         super(TourType.MEDICAL, transportType, nutritionType, duration, price);
         this.medicalSupport = medicalSupport;
-        this.city = city;
+        this.сountry = сountry;
     }
+
 
     public boolean isMedicalSupport() {
         return medicalSupport;
@@ -28,12 +33,12 @@ public class MedicalTour extends TravelTour {
         this.medicalSupport = medicalSupport;
     }
 
-    public String getCity() {
-        return city;
+    public String getCountry() {
+        return сountry;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCountry(String сountry) {
+        this.сountry = сountry;
     }
 
     @Override
@@ -48,20 +53,20 @@ public class MedicalTour extends TravelTour {
         if (!super.equals(o)) return false;
         MedicalTour that = (MedicalTour) o;
         return isMedicalSupport() == that.isMedicalSupport() &&
-                getCity().equals(that.getCity()) &&
+                getCountry().equals(that.getCountry()) &&
                 getTourType() == that.getTourType();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), isMedicalSupport(), getCity(), getTourType());
+        return Objects.hash(super.hashCode(), isMedicalSupport(), getCountry(), getTourType());
     }
 
     @Override
     public String toString() {
         return "MedicalTour{" +
                 "medicalSupport=" + medicalSupport +
-                ", city='" + city + '\'' +
+                ", country='" + сountry + '\'' +
                 ", tourType=" + tourType +
                 '}';
     }

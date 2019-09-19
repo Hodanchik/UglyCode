@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class ShopTour extends TravelTour {
     private static final Logger log = Logger.getLogger(ShopTour.class);
-    private String city;
+    private String country;
     private boolean visitDutyFree;
     private final TourType tourType = TourType.SHOP;
 
@@ -15,18 +15,22 @@ public class ShopTour extends TravelTour {
         super(TourType.SHOP, transportType, nutritionType, duration, price);
     }
 
-    public ShopTour(TransportType transportType, NutritionType nutritionType, int duration, double price, String city, boolean visitDutyFree) {
+    public ShopTour(TransportType transportType, NutritionType nutritionType, int duration, double price, String country, boolean visitDutyFree) {
         super(TourType.SHOP, transportType, nutritionType, duration, price);
-        this.city = city;
+        this.country = country;
         this.visitDutyFree = visitDutyFree;
     }
 
-    public String getCity() {
-        return city;
+    public ShopTour() {
+        super();
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public boolean isVisitDutyFree() {
@@ -49,19 +53,19 @@ public class ShopTour extends TravelTour {
         if (!super.equals(o)) return false;
         ShopTour shopTour = (ShopTour) o;
         return isVisitDutyFree() == shopTour.isVisitDutyFree() &&
-                getCity().equals(shopTour.getCity()) &&
+                getCountry().equals(shopTour.getCountry()) &&
                 getTourType() == shopTour.getTourType();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getCity(), isVisitDutyFree(), getTourType());
+        return Objects.hash(super.hashCode(), getCountry(), isVisitDutyFree(), getTourType());
     }
 
     @Override
     public String toString() {
         return "ShopTour{" +
-                "city='" + city + '\'' +
+                "city='" + country + '\'' +
                 ", visitDutyFree=" + visitDutyFree +
                 ", tourType=" + tourType +
                 '}';

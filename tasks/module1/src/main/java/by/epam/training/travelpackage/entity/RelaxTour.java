@@ -6,30 +6,34 @@ import java.util.Objects;
 
 public class RelaxTour extends TravelTour {
     private static final Logger log = Logger.getLogger(RelaxTour.class);
-    private String city;
+    private String country;
     private boolean hotCountry;
     private boolean haveSea;
-    private HotelStars hotelStars;
+    private HotelStarsType hotelStarsType;
     private final TourType tourType = TourType.RELAX;
 
     public RelaxTour(TransportType transportType, NutritionType nutritionType, int duration, double price) {
         super(TourType.RELAX, transportType, nutritionType, duration, price);
     }
 
-    public RelaxTour(TransportType transportType, NutritionType nutritionType, int duration, double price, String city, boolean hotCountry, boolean haveSea, HotelStars hotelStars) {
+    public RelaxTour(TransportType transportType, NutritionType nutritionType, int duration, double price, String country, boolean hotCountry, boolean haveSea, HotelStarsType hotelStarsType) {
         super(TourType.RELAX, transportType, nutritionType, duration, price);
-        this.city = city;
+        this.country = country;
         this.hotCountry = hotCountry;
         this.haveSea = haveSea;
-        this.hotelStars = hotelStars;
+        this.hotelStarsType = hotelStarsType;
     }
 
-    public String getCity() {
-        return city;
+    public RelaxTour() {
+        super();
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public boolean isHotCountry() {
@@ -48,12 +52,12 @@ public class RelaxTour extends TravelTour {
         this.haveSea = haveSea;
     }
 
-    public HotelStars getHotelStars() {
-        return hotelStars;
+    public HotelStarsType getHotelStarsType() {
+        return hotelStarsType;
     }
 
-    public void setHotelStars(HotelStars hotelStars) {
-        this.hotelStars = hotelStars;
+    public void setHotelStarsType(HotelStarsType hotelStarsType) {
+        this.hotelStarsType = hotelStarsType;
     }
 
     public TourType getTourType() {
@@ -68,23 +72,23 @@ public class RelaxTour extends TravelTour {
         RelaxTour relaxTour = (RelaxTour) o;
         return isHotCountry() == relaxTour.isHotCountry() &&
                 isHaveSea() == relaxTour.isHaveSea() &&
-                getCity().equals(relaxTour.getCity()) &&
-                getHotelStars() == relaxTour.getHotelStars() &&
+                getCountry().equals(relaxTour.getCountry()) &&
+                getHotelStarsType() == relaxTour.getHotelStarsType() &&
                 tourType == relaxTour.tourType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), getCity(), isHotCountry(), isHaveSea(), getHotelStars(), tourType);
+        return Objects.hash(super.hashCode(), getCountry(), isHotCountry(), isHaveSea(), getHotelStarsType(), tourType);
     }
 
     @Override
     public String toString() {
         return "RelaxTour{" +
-                "city='" + city + '\'' +
+                "city='" + country + '\'' +
                 ", hotCountry=" + hotCountry +
                 ", haveSea=" + haveSea +
-                ", hotelStars=" + hotelStars +
+                ", hotelStars=" + hotelStarsType +
                 ", tourType=" + tourType +
                 '}';
     }

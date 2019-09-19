@@ -13,6 +13,9 @@ public class TravelTour {
     private double price;
     private TourType tourType;
 
+    public TravelTour() {
+    }
+
     public TravelTour(TourType tourType, TransportType transportType, NutritionType nutritionType, int duration, double price) {
         this.transportType = transportType;
         this.nutritionType = nutritionType;

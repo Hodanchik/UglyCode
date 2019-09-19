@@ -4,7 +4,6 @@ import by.epam.training.travelpackage.entity.TravelTour;
 import by.epam.training.travelpackage.repository.Repository;
 import by.epam.training.travelpackage.repository.Specification;
 import org.apache.log4j.Logger;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,8 +17,6 @@ public class TravelTourService implements Repository<TravelTour> {
 
     public TravelTourService() {
     }
-
-
     public TravelTourService(List<TravelTour> travelTourList) {
         this.travelTourList = travelTourList;
     }
@@ -70,6 +67,17 @@ public class TravelTourService implements Repository<TravelTour> {
         for (TravelTour tour : travelTourList) {
             if (specification.match(tour)) {
                 Collections.sort(travelTourList, new BeanComparator(parameter));
+                return travelTourList;
+            }
+        } return travelTourList;
+    }
+    public List<TravelTour> sortIncreasByTwoParameter(Specification<TravelTour> specification, String firstparameter
+                                                      ,String secondparameter) {
+        log.debug("sortIncreasByTwoParameter method");
+        for (TravelTour tour : travelTourList) {
+            if (specification.match(tour)) {
+                Collections.sort(travelTourList, new BeanComparator(firstparameter)
+                        .thenComparing(new BeanComparator(secondparameter)));
                 return travelTourList;
             }
         } return travelTourList;

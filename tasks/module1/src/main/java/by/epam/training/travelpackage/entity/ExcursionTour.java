@@ -22,6 +22,10 @@ public class ExcursionTour extends TravelTour {
         this.nightMoving = nightMoving;
     }
 
+    public ExcursionTour() {
+        super();
+    }
+
     public int getCountCountry() {
         return countCountry;
     }

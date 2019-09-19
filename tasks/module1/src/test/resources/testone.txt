@@ -1,0 +1,9 @@
+tourType:SUPER_TOUR,transportType:TRAIN,nutritionType:RO,duration:13,price:1798.99,medicalSupport:true,country:Russia
+tourType:SUPER_TOUR,transportType:TRAIN,nutritionType:RO,duration:17,price:1200,medicalSupport:false,country:Belarus
+tourType:SUPER_TOUR,transportType:BUS,nutritionType:AIP,duration:9,price:1877.99,country:Malta,hotCountry:true,haveSea:true,hotelStarsType:FOUR
+tourType:SUPER_TOUR,transportType:BUS,nutritionType:AIP,duration:13,price:679.99,country:Malta,hotCountry:true,haveSea:true,hotelStarsType:FOUR
+tourType:SUPER_TOUR,transportType:BUS,nutritionType:BB,duration:4,price:129.99,countCountry:2,localGuide:true,nightMoving:false
+tourType:SUPER_TOUR,transportType:CRUISE_SHIP,nutritionType:BB,duration:3,price:329.99,countCountry:3,localGuide:true,nightMoving:false
+tourType:SUPER_TOUR,transportType:BUS,nutritionType:BB,duration:7,price:529.99,countCountry:4,localGuide:false,nightMoving:true
+tourType:SHOP,transportType:BUS,nutritionType:RO,duration:2,price:89.99,country:Russia,visitDutyFree:false
+tourType:SHOP,transportType:BUS,nutritionType:RO,duration:2,price:79.99,country:Poland,visitDutyFree:true
