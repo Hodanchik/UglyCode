@@ -6,8 +6,8 @@ import java.util.Map;
 public class DataValidatorFactory {
     private static final Logger log = Logger.getLogger(DataValidatorFactory.class);
     private String standartField = "tourType";
-    ValidatorResult validatorResult;
-    int counterLine;
+    private ValidatorResult validatorResult;
+    private int counterLine;
 
 
     public DataValidatorFactory(int counterLine, ValidatorResult validatorResult) {
@@ -27,8 +27,8 @@ public class DataValidatorFactory {
                 case "EXCURSION":
                     return new ExcursionTourValidator(validatorResult,counterLine).validate(dateParseMap);
             }
-            validatorResult.addResult(counterLine, "Uncorrect value tourType");
-            log.warn("Uncorrect value TourType");
+            validatorResult.addResult(counterLine, "Incorrect value tourType");
+            log.warn("Incorrect value TourType");
             return validatorResult;
         } else {
             validatorResult.addResult(counterLine, "Missing tourType field");

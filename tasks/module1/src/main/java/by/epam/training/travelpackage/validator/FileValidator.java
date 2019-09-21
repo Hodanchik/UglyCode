@@ -7,7 +7,7 @@ import java.io.File;
 public class FileValidator {
     private static final Logger log = Logger.getLogger(FileValidator.class);
 
-    ValidatorResult validatorResult = new ValidatorResult();
+    private ValidatorResult validatorResult = new ValidatorResult();
 
     public FileValidator() {
     }

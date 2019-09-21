@@ -11,13 +11,14 @@ import java.util.Map;
 
 public class RelaxTourValidator extends TourValidator implements DataValidator {
     private static final Logger log = Logger.getLogger(RelaxTourValidator.class);
-    List<String> standartRelaxTour = new ArrayList<>();
-    ValidatorResult validatorResult;
-    int counterLine;
+    private List<String> standartRelaxTour = new ArrayList<>();
+    private ValidatorResult validatorResult;
+    private int counterLine;
 
 
     public RelaxTourValidator(ValidatorResult validatorResult, int counterLine) {
         super(validatorResult, counterLine);
+        this.validatorResult = validatorResult;
         standartRelaxTour.add("country");
         standartRelaxTour.add("hotCountry");
         standartRelaxTour.add("haveSea");

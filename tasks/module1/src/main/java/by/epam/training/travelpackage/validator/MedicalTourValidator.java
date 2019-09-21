@@ -9,12 +9,13 @@ import java.util.Map;
 
 public class MedicalTourValidator extends TourValidator implements DataValidator {
     private static final Logger log = Logger.getLogger(MedicalTourValidator.class);
-    ValidatorResult validatorResult;
+    private ValidatorResult validatorResult;
     int counterLine;
-    List<String> standartMedicalTour = new ArrayList<String>();
+    private List<String> standartMedicalTour = new ArrayList<String>();
 
     public MedicalTourValidator(ValidatorResult validatorResult, int counterLine) {
         super(validatorResult, counterLine);
+        this.validatorResult = validatorResult;
         standartMedicalTour.add("medicalSupport");
         standartMedicalTour.add("country");
     }

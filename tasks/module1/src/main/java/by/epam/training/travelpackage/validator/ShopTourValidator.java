@@ -9,8 +9,8 @@ import java.util.Map;
 
 public class ShopTourValidator extends TourValidator implements DataValidator {
     private static final Logger log = Logger.getLogger(ShopTourValidator.class);
-    List<String> standartShopTour = new ArrayList<>();
-    ValidatorResult validatorResult;
+    private List<String> standartShopTour = new ArrayList<>();
+    private ValidatorResult validatorResult;
     int counterLine;
 
     public ShopTourValidator(ValidatorResult validatorResult, int counterLine) {

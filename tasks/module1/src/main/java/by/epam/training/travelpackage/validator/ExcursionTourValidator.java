@@ -9,14 +9,15 @@ import java.util.Map;
 
 public class ExcursionTourValidator extends TourValidator implements DataValidator {
     private static final Logger log = Logger.getLogger(ExcursionTourValidator.class);
-    ValidatorResult validatorResult;
+    private ValidatorResult validatorResult;
     private int minCountCountry;
     private int maxCountCountry;
-    int counterLine;
-    List<String> standartExcursionTour = new ArrayList<>();
+    private int counterLine;
+    private List<String> standartExcursionTour = new ArrayList<>();
 
     public ExcursionTourValidator(ValidatorResult validatorResult, int counterLine) {
         super(validatorResult, counterLine);
+        this.validatorResult = validatorResult;
         this.minCountCountry = 1;
         this.maxCountCountry = 197;
         standartExcursionTour.add("countCountry");
@@ -27,7 +28,7 @@ public class ExcursionTourValidator extends TourValidator implements DataValidat
 
     @Override
     public ValidatorResult validate(Map<String, String> validateMap) {
-        validate(validateMap);
+        commonValidate(validateMap);
         for (String standartField : standartExcursionTour) {
             if (validateMap.containsKey(standartField)) {
                 switch (standartField) {

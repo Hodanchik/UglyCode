@@ -12,13 +12,13 @@ import java.util.Map;
 public abstract class TourValidator {
 
     private static final Logger log = Logger.getLogger(TourValidator.class);
-    ValidatorResult validatorResult;
-    List<String> standartTour = new ArrayList<>();
+    private ValidatorResult validatorResult;
+    private List<String> standartTour = new ArrayList<>();
     private int minDuration = 1;
     private int maxDuration = 90;
     private double minPrice = 0;
     private double maxPrice = Double.MAX_VALUE;
-    int counterLine;
+    private int counterLine;
 
     public TourValidator(ValidatorResult validatorResult, int counterLine) {
         this.validatorResult = validatorResult;
