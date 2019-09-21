@@ -1,16 +1,17 @@
-package by.epam.training.travelpackage.controller.validator;
+package by.epam.training.travelpackage.validator;
 
 import org.apache.log4j.Logger;
 
 import java.util.Map;
-
 public class DataValidatorFactory {
     private static final Logger log = Logger.getLogger(DataValidatorFactory.class);
     private String standartField = "tourType";
-    ValidatorResult validatorResult = new ValidatorResult();
+    ValidatorResult validatorResult;
     int counterLine;
 
-    public DataValidatorFactory(int counterLine) {
+
+    public DataValidatorFactory(int counterLine, ValidatorResult validatorResult) {
+        this.validatorResult = validatorResult;
         this.counterLine = counterLine;
     }
 
@@ -18,18 +19,17 @@ public class DataValidatorFactory {
         if (dateParseMap.containsKey(standartField)) {
             switch (dateParseMap.get(standartField)) {
                 case "MEDICAL":
-                    return new MedicalTourValidator(counterLine).validate(dateParseMap);
+                    return new MedicalTourValidator(validatorResult,counterLine).validate(dateParseMap);
                 case "RELAX":
-                    return new RelaxTourValidator(counterLine).validate(dateParseMap);
+                    return new RelaxTourValidator(validatorResult,counterLine).validate(dateParseMap);
                 case "SHOP":
-                    return new ShopTourValidator(counterLine).validate(dateParseMap);
+                    return new ShopTourValidator(validatorResult,counterLine).validate(dateParseMap);
                 case "EXCURSION":
-                    return new ExcursionTourValidator(counterLine).validate(dateParseMap);
-                default:
-                    validatorResult.addResult(counterLine, "Uncorrect value tourType");
-                    log.warn("Uncorrect value TourType");
-                    return validatorResult;
+                    return new ExcursionTourValidator(validatorResult,counterLine).validate(dateParseMap);
             }
+            validatorResult.addResult(counterLine, "Uncorrect value tourType");
+            log.warn("Uncorrect value TourType");
+            return validatorResult;
         } else {
             validatorResult.addResult(counterLine, "Missing tourType field");
             log.info("the required field is missing");

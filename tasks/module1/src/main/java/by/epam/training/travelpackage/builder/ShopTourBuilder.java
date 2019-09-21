@@ -1,4 +1,4 @@
-package by.epam.training.travelpackage.controller.builder;
+package by.epam.training.travelpackage.builder;
 
 import by.epam.training.travelpackage.entity.*;
 

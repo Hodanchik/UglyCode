@@ -1,47 +1,53 @@
 package by.epam.training.travelpackage.controller;
 
+import by.epam.training.travelpackage.repository.TravelTourRepository;
 import by.epam.training.travelpackage.service.TravelTourService;
 import org.junit.Test;
 
-import static junit.framework.TestCase.assertEquals;
+import java.io.File;
+
+import static org.junit.Assert.assertEquals;
 
 public class ControllerTest {
-    TravelTourService travelTourService = new TravelTourService();
+    TravelTourRepository tourRepository = new TravelTourRepository();
+    TravelTourService travelTourService = new TravelTourService(tourRepository);
+    Controller contr = new Controller(travelTourService);
+    ClassLoader classLoader = getClass().getClassLoader();
     @Test
     public void saveEntityFromFileSuccessTest() {
-        Controller contr = new Controller();
         int expectedSize = 9;
-        contr.saveEntityFromFile("src/test/resources/testsuccess.txt", travelTourService);
-        assertEquals(expectedSize, travelTourService.getTravelTourList().size());
+        String path = new File(classLoader.getResource("testsuccess").getFile()).getAbsolutePath();
+        contr.saveEntityFromFile(path);
+        assertEquals(expectedSize, travelTourService.getTravelTourRepository().getTourList().size());
     }
     @Test
     public void saveEntityFromFileNoValidPathTest() {
-        Controller contr = new Controller();
-        contr.saveEntityFromFile("src/test/resources/test123.txt", travelTourService);
+        File file = new File(classLoader.getResource("test123").getFile());
+        contr.saveEntityFromFile(file.getAbsolutePath());
         assertEquals(contr.validatorResult.isValidate(), false);
     }
     @Test
     public void saveEntityFromFileNoValidDateOneTest() {
         //field Tour Type invalid
-        Controller contr = new Controller();
         int expectedSize = 2;
-        contr.saveEntityFromFile("src/test/resources/testone.txt", travelTourService);
-        assertEquals(expectedSize, travelTourService.getTravelTourList().size());
+        File file = new File(classLoader.getResource("testone").getFile());
+        contr.saveEntityFromFile(file.getAbsolutePath());
+        assertEquals(expectedSize, travelTourService.getTravelTourRepository().getTourList().size());
     }
     @Test
     public void saveEntityFromFileNoValidDateTwoTest() {
         //missing required fields
-        Controller contr = new Controller();
         int expectedSize = 3;
-        contr.saveEntityFromFile("src/test/resources/testtwo.txt", travelTourService);
-        assertEquals(expectedSize, travelTourService.getTravelTourList().size());
+        File file = new File(classLoader.getResource("testthree").getFile());
+        contr.saveEntityFromFile(file.getAbsolutePath());
+        assertEquals(expectedSize, travelTourService.getTravelTourRepository().getTourList().size());
     }
     @Test
     public void saveEntityFromFileNoValidDateFourTest() {
         //Miss TourType field
-        Controller contr = new Controller();
         int expectedSize = 3;
-        contr.saveEntityFromFile("src/test/resources/testfour.txt", travelTourService);
-        assertEquals(expectedSize, travelTourService.getTravelTourList().size());
+        File file = new File(classLoader.getResource("testfour").getFile());
+        contr.saveEntityFromFile(file.getAbsolutePath());
+        assertEquals(expectedSize, travelTourService.getTravelTourRepository().getTourList().size());
     }
 }

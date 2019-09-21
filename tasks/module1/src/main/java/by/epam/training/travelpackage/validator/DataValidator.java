@@ -1,4 +1,4 @@
-package by.epam.training.travelpackage.controller.validator;
+package by.epam.training.travelpackage.validator;
 
 import java.util.Map;
 public interface DataValidator {

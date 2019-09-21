@@ -1,4 +1,4 @@
-package by.epam.training.travelpackage.entity;
+package by.epam.training.travelpackage.service.comparator;
 
 import org.apache.log4j.Logger;
 

@@ -1,96 +1,78 @@
 package by.epam.training.travelpackage.service;
-import by.epam.training.travelpackage.entity.BeanComparator;
+
+import by.epam.training.travelpackage.service.comparator.BeanComparator;
 import by.epam.training.travelpackage.entity.TravelTour;
-import by.epam.training.travelpackage.repository.Repository;
-import by.epam.training.travelpackage.repository.Specification;
+import by.epam.training.travelpackage.repository.specification.Specification;
+import by.epam.training.travelpackage.repository.TravelTourRepository;
 import org.apache.log4j.Logger;
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-
-public class TravelTourService implements Repository<TravelTour> {
+public class TravelTourService {
 
     private static final Logger log = Logger.getLogger(TravelTourService.class);
+    private TravelTourRepository travelTourRepository;
 
-    private List<TravelTour> travelTourList = new ArrayList<>();
-
-    public TravelTourService() {
-    }
-    public TravelTourService(List<TravelTour> travelTourList) {
-        this.travelTourList = travelTourList;
+    public TravelTourService(TravelTourRepository travelTourRepository) {
+        this.travelTourRepository = travelTourRepository;
     }
 
-    public List<TravelTour> getTravelTourList() {
-        return travelTourList;
+    public void saveTour(TravelTour travelTour) {
+        travelTourRepository.add(travelTour);
     }
 
-    @Override
-    public TravelTour find(Specification<TravelTour> specification){
-        log.debug("find method");
-        for (TravelTour tour : travelTourList) {
-            if (specification.match(tour)) {
-                return tour;
-            }
-        }
-        log.error("Not find tour");
-        return null;
+    public List<TravelTour> sort(Comparator<TravelTour> comparator) {
+        List<TravelTour> sortTravelTourList = travelTourRepository.getTourList();
+        sortTravelTourList.sort(comparator);
+        return sortTravelTourList;
     }
 
-    @Override
-    public void save(TravelTour travelTour) {
-        travelTourList.add(travelTour);
+    public List<TravelTour> getAllByParameter(Specification<TravelTour> spec) {
+        return travelTourRepository.findAllByParameter(spec);
     }
 
-    @Override
-    public void delete(TravelTour travelTour) {
-        log.debug("delete method");
-        for (TravelTour tour : travelTourList) {
-            if (tour.equals(travelTour)) {
-                travelTourList.remove(travelTour);
-            }
-        }
-    }
-    public List<TravelTour> findAllByParameter(Specification<TravelTour> specification){
-        log.debug("findAllByParameter method");
-        List<TravelTour> selectList = new ArrayList<>();
-        for (TravelTour tour : travelTourList) {
-            if (specification.match(tour)) {
-                selectList.add(tour);
-            }
-        }
-        return selectList;
+
+    public TravelTourRepository getTravelTourRepository() {
+        return travelTourRepository;
     }
 
+    //Custom sorterComplex
     public List<TravelTour> sortIncreasByParameter(Specification<TravelTour> specification, String parameter) {
         log.debug("sortIncreasByParameter method");
+        List<TravelTour> travelTourList = travelTourRepository.getTourList();
         for (TravelTour tour : travelTourList) {
             if (specification.match(tour)) {
                 Collections.sort(travelTourList, new BeanComparator(parameter));
                 return travelTourList;
             }
-        } return travelTourList;
+        }
+        return travelTourList;
     }
     public List<TravelTour> sortIncreasByTwoParameter(Specification<TravelTour> specification, String firstparameter
-                                                      ,String secondparameter) {
+            , String secondparameter) {
         log.debug("sortIncreasByTwoParameter method");
+        List<TravelTour> travelTourList = travelTourRepository.getTourList();
         for (TravelTour tour : travelTourList) {
             if (specification.match(tour)) {
                 Collections.sort(travelTourList, new BeanComparator(firstparameter)
                         .thenComparing(new BeanComparator(secondparameter)));
                 return travelTourList;
             }
-        } return travelTourList;
+        }
+        return travelTourList;
     }
 
     public List<TravelTour> sortDescendenceByParameter(Specification<TravelTour> specification, String parameter) {
         log.debug("sortDescendenceByParameter");
+        List<TravelTour> travelTourList = travelTourRepository.getTourList();
         for (TravelTour tour : travelTourList) {
             if (specification.match(tour)) {
                 Collections.sort(travelTourList, new BeanComparator(parameter));
                 Collections.reverse(travelTourList);
                 return travelTourList;
             }
-        } return travelTourList;
+        }
+        return travelTourList;
     }
 }

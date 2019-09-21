@@ -1,4 +1,4 @@
-package by.epam.training.travelpackage.controller.builder;
+package by.epam.training.travelpackage.builder;
 
 import by.epam.training.travelpackage.entity.TravelTour;
 import org.apache.log4j.Logger;
@@ -9,7 +9,9 @@ public class AbstractTourFactory {
     private static final Logger log = Logger.getLogger(AbstractTourFactory.class);
     String tourType = "tourType";
 
+
     public TravelTour buildTour(Map<String, String> validateMap) {
+
         switch (validateMap.get(tourType)) {
             case "MEDICAL":
                 return new MedicalTourBuilder().buildTour(validateMap);

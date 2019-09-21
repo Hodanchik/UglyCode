@@ -1,7 +1,11 @@
 package by.epam.training.travelpackage.repository;
 
+import by.epam.training.travelpackage.repository.specification.Specification;
+
+import java.util.List;
+
 public interface Repository<T> {
-    T find(Specification<T> specification) throws NoSuchFieldException;
-    void save(T entity);
-    void delete(T entity);
+    void add(T entity);
+    void remove(T entity);
+    List<T> findAllByParameter(Specification<T> spec);
 }

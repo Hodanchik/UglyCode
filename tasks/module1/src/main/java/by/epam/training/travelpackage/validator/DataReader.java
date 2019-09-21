@@ -1,4 +1,4 @@
-package by.epam.training.travelpackage.controller.validator;
+package by.epam.training.travelpackage.validator;
 
 import org.apache.log4j.Logger;
 
@@ -11,12 +11,18 @@ import java.util.List;
 public class DataReader {
     private static final Logger log = Logger.getLogger(DataReader.class);
     private List<String> lines;
+    private ValidatorResult validatorResult;
+
+    public DataReader(ValidatorResult validatorResult) {
+        this.validatorResult = validatorResult;
+    }
+
     public List<String> ReadDate(String path) {
         try {
             lines = Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8);
         } catch (IOException e) {
             log.error("Can't read file", e);
-            e.printStackTrace();
+            validatorResult.addResult(0, "Can't read file");
         }
         return lines;
     }

@@ -1,4 +1,4 @@
-package by.epam.training.travelpackage.repository;
+package by.epam.training.travelpackage.repository.specification;
 
 import by.epam.training.travelpackage.entity.TravelTour;
 import org.apache.log4j.Logger;
