@@ -1,76 +1,77 @@
 package by.epam.training.travelpackage.validator;
 
+import by.epam.training.travelpackage.validator.field.StandardExcursionField;
 import by.epam.training.travelpackage.validator.util.DataChecker;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class ExcursionTourValidator extends TourValidator implements DataValidator {
     private static final Logger log = Logger.getLogger(ExcursionTourValidator.class);
-    private ValidatorResult validatorResult;
-    private int minCountCountry;
-    private int maxCountCountry;
     private int counterLine;
-    private List<String> standartExcursionTour = new ArrayList<>();
+    private StandardExcursionField excursionField;
+    private static final int MIN_COUNT_COUNTRY = 1;
+    private int MAX_COUNT_COUNTRY = 197;
 
-    public ExcursionTourValidator(ValidatorResult validatorResult, int counterLine) {
-        super(validatorResult, counterLine);
-        this.validatorResult = validatorResult;
-        this.minCountCountry = 1;
-        this.maxCountCountry = 197;
-        standartExcursionTour.add("countCountry");
-        standartExcursionTour.add("localGuide");
-        standartExcursionTour.add("nightMoving");
+    public ExcursionTourValidator(int counterLine) {
+        super(counterLine);
+        this.counterLine = counterLine;
     }
-
 
     @Override
     public ValidatorResult validate(Map<String, String> validateMap) {
-        commonValidate(validateMap);
-        for (String standartField : standartExcursionTour) {
-            if (validateMap.containsKey(standartField)) {
-                switch (standartField) {
-                    case "countCountry":
-                        validateCountCountry(validateMap.get(standartField));
-                        break;
-                    case "localGuide":
-                        validateLocalGuide(validateMap.get(standartField));
-                        break;
-                    case "nightMoving":
-                        validateNightMoving(validateMap.get(standartField));
-                        break;
+        ValidatorResult validatorResult = commonValidate(validateMap);
+        if (validatorResult.isValidate()) {
+            for (String field : validateMap.keySet()) {
+                if (StandardExcursionField.fromString(field).isPresent()) {
+                    excursionField = StandardExcursionField.fromString(field).get();
+                    switch (excursionField) {
+                        case TOURTYPE:
+                        case PRICE:
+                        case DURATION:
+                        case NUTRITIONTYPE:
+                        case TRANSPORTTYPE:
+                            break;
+                        case COUNTCOUNTRY:
+                            validateCountCountry(validateMap.get(field), validatorResult);
+                            break;
+                        case LOCALGUIDE:
+                            validateLocalGuide(validateMap.get(field), validatorResult);
+                            break;
+                        case NIGHTMOVING:
+                            validateNightMoving(validateMap.get(field), validatorResult);
+                            break;
+                    }
+                } else {
+                    log.warn("Incorrect field name in " + counterLine);
+                    validatorResult.addResult(counterLine, "Incorrect field name");
                 }
-            } else {
-                validatorResult.addResult(counterLine, "Uncorrect field name");
-                log.warn("ExcursionTourValidator error uncorrect field name in " + counterLine);
             }
         }
         return validatorResult;
     }
 
-    public void validateCountCountry(String countCountry) {
+    public void validateCountCountry(String countCountry, ValidatorResult validatorResult) {
         if (DataChecker.isInteger(countCountry)) {
             Integer countCountryInt = Integer.valueOf(countCountry);
-            if (!(countCountryInt >= minCountCountry && countCountryInt <= maxCountCountry)) {
-                validatorResult.addResult(counterLine, "Uncorrect value field countCountry");
-                log.warn("Uncorrect value field countCountry in ExcursionTour in " + counterLine);
+            if (!(countCountryInt >= MIN_COUNT_COUNTRY && countCountryInt <= MAX_COUNT_COUNTRY)) {
+                validatorResult.addResult(counterLine, "Incorrect value field countCountry");
+                log.warn("Incorrect value field countCountry in " + counterLine);
             }
         }
     }
 
-    public void validateLocalGuide(String localGuide) {
+    public void validateLocalGuide(String localGuide, ValidatorResult validatorResult) {
         if (!DataChecker.isBoolean(localGuide)) {
-            validatorResult.addResult(counterLine, "Uncorrect value field localGuide");
-            log.warn("Uncorrect value field localGuide in ExcursionTour in" + counterLine);
+            validatorResult.addResult(counterLine, "Incorrect value field localGuide");
+            log.warn("Incorrect value field localGuide in" + counterLine);
         }
     }
 
-    public void validateNightMoving(String nightMoving) {
+    public void validateNightMoving(String nightMoving, ValidatorResult validatorResult) {
         if (!DataChecker.isBoolean(nightMoving)) {
-            validatorResult.addResult(counterLine, "Uncorrect value field nightMoving");
-            log.warn("Uncorrect value field nightMoving in ExcursionTour in " + counterLine);
+            validatorResult.addResult(counterLine, "Incorrect value field nightMoving");
+            log.warn("Incorrect value field nightMoving in " + counterLine);
         }
     }
 }

@@ -2,57 +2,50 @@ package by.epam.training.travelpackage.validator;
 
 import by.epam.training.travelpackage.entity.NutritionType;
 import by.epam.training.travelpackage.entity.TransportType;
+import by.epam.training.travelpackage.validator.field.StandardTourField;
 import by.epam.training.travelpackage.validator.util.DataChecker;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
-public abstract class TourValidator {
-
+public class TourValidator {
     private static final Logger log = Logger.getLogger(TourValidator.class);
-    private ValidatorResult validatorResult;
-    private List<String> standartTour = new ArrayList<>();
-    private int minDuration = 1;
-    private int maxDuration = 90;
-    private double minPrice = 0;
-    private double maxPrice = Double.MAX_VALUE;
+    private static final int MIN_DURATION = 1;
+    private static final int MAX_DURATION = 90;
+    private static final double MIN_PRICE = 0;
+    private static final double MAX_PRICE = Double.MAX_VALUE;
     private int counterLine;
+    private StandardTourField tourField;
 
-    public TourValidator(ValidatorResult validatorResult, int counterLine) {
-        this.validatorResult = validatorResult;
+    public TourValidator(int counterLine) {
         this.counterLine = counterLine;
-        standartTour.add("transportType");
-        standartTour.add("nutritionType");
-        standartTour.add("duration");
-        standartTour.add("price");
     }
 
     public ValidatorResult commonValidate(Map<String, String> validateMap) {
-        for (String standartField : standartTour) {
-            if (validateMap.containsKey(standartField)) {
-                switch (standartField) {
-                    case "transportType":
-                        validateTransportType(validateMap.get(standartField));
+        ValidatorResult validatorResult = new ValidatorResult();
+        for (String field : validateMap.keySet()) {
+            if (StandardTourField.fromString(field).isPresent()) {
+                tourField = StandardTourField.fromString(field).get();
+                switch (tourField) {
+                    case TRANSPORTTYPE:
+                        validateTransportType(validateMap.get(field), validatorResult);
                         break;
-                    case "nutritionType":
-                        validateNutritionType(validateMap.get(standartField));
+                    case NUTRITIONTYPE:
+                        validateNutritionType(validateMap.get(field), validatorResult);
                         break;
-                    case "duration":
-                        validateDuration(validateMap.get(standartField));
+                    case DURATION:
+                        validateDuration(validateMap.get(field), validatorResult);
                         break;
-                    case "price":
-                        validatePrice(validateMap.get(standartField));
+                    case PRICE:
+                        validatePrice(validateMap.get(field), validatorResult);
                         break;
                 }
-            } else {log.warn("Uncorrect field name in " + counterLine);
-                validatorResult.addResult(counterLine, "Uncorrect field name");
             }
-
-        }return validatorResult;
+        }
+        return validatorResult;
     }
-    public void validateTransportType(String transportType) {
+
+    public void validateTransportType(String transportType, ValidatorResult validatorResult) {
         boolean flag = false;
         TransportType[] transportTypeArr = TransportType.values();
         for (TransportType type : transportTypeArr) {
@@ -61,12 +54,12 @@ public abstract class TourValidator {
             }
         }
         if (!flag) {
-            validatorResult.addResult(counterLine, "Uncorrect value field transportType");
-            log.warn("transportType in  uncorrect value field in " + counterLine);
+            validatorResult.addResult(counterLine, "Incorrect value field transportType");
+            log.warn("Incorrect value field transportType in " + counterLine);
         }
     }
 
-    public void validateNutritionType(String nutritionType) {
+    public void validateNutritionType(String nutritionType, ValidatorResult validatorResult) {
         boolean flag = false;
         NutritionType[] nutritionTypeArr = NutritionType.values();
         for (NutritionType type : nutritionTypeArr) {
@@ -75,34 +68,34 @@ public abstract class TourValidator {
             }
         }
         if (!flag) {
-            validatorResult.addResult(counterLine, "Uncorrect value field nutritionType");
-            log.warn("nutritionType in  uncorrect value field in " + counterLine);
+            validatorResult.addResult(counterLine, "Incorrect value field nutritionType");
+            log.warn("Incorrect value field nutritionType in " + counterLine);
         }
     }
 
-    public void validateDuration(String duration) {
+    public void validateDuration(String duration, ValidatorResult validatorResult) {
         if (DataChecker.isInteger(duration)) {
             Integer durationInt = Integer.valueOf(duration);
-            if (!(durationInt >= minDuration && durationInt <= maxDuration)) {
-                validatorResult.addResult(counterLine, "Uncorrect value field duration");
-                log.warn("duration in  uncorrect value field in " + counterLine);
+            if (!(durationInt >= MIN_DURATION && durationInt <= MAX_DURATION)) {
+                validatorResult.addResult(counterLine, "Incorrect value field duration");
+                log.warn("Incorrect value field duration  in " + counterLine);
             }
         } else {
-            validatorResult.addResult(counterLine, "Uncorrect value field daration");
-            log.warn("duration in  uncorrect value field in " + counterLine);
+            validatorResult.addResult(counterLine, "Incorrect value field daration");
+            log.warn("Incorrect value field duration in " + counterLine);
         }
     }
 
-    public void validatePrice(String price) {
+    public void validatePrice(String price, ValidatorResult validatorResult) {
         if (DataChecker.isDouble(price)) {
             Double priceDouble = Double.valueOf(price);
-            if (!(priceDouble >= minPrice && priceDouble <= maxPrice)) {
+            if (!(priceDouble >= MIN_PRICE && priceDouble <= MAX_PRICE)) {
                 validatorResult.addResult(counterLine, "Uncorrect value field");
-                log.warn("price in MedicalTour uncorrect value field in " + counterLine);
+                log.warn("Incorrect value field price in " + counterLine);
             }
         } else {
-            validatorResult.addResult(counterLine, "Uncorrect value field price");
-            log.warn("price in uncorrect value field in " + counterLine);
+            validatorResult.addResult(counterLine, "Incorrect value field price");
+            log.warn("Incorrect value field price in " + counterLine);
         }
     }
 }

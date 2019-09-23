@@ -11,10 +11,8 @@ import java.util.List;
 public class DataReader {
     private static final Logger log = Logger.getLogger(DataReader.class);
     private List<String> lines;
-    private ValidatorResult validatorResult;
 
-    public DataReader(ValidatorResult validatorResult) {
-        this.validatorResult = validatorResult;
+    public DataReader() {
     }
 
     public List<String> ReadDate(String path) {
@@ -22,7 +20,6 @@ public class DataReader {
             lines = Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8);
         } catch (IOException e) {
             log.error("Can't read file", e);
-            validatorResult.addResult(0, "Can't read file");
         }
         return lines;
     }

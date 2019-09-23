@@ -1,21 +1,20 @@
 package by.epam.training.travelpackage.repository;
 
 import by.epam.training.travelpackage.entity.TravelTour;
-import by.epam.training.travelpackage.repository.specification.Specification;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TravelTourRepository implements Repository<TravelTour> {
-    private static final Logger log = Logger.getLogger(TravelTourRepository.class);
+public class TravelTourRepositoryImpl implements Repository<TravelTour> {
+    private static final Logger log = Logger.getLogger(TravelTourRepositoryImpl.class);
 
     private List<TravelTour> travelTourList = new ArrayList<>();
 
-    public TravelTourRepository() {
+    public TravelTourRepositoryImpl() {
     }
 
-    public TravelTourRepository(List<TravelTour> travelTourList) {
+    public TravelTourRepositoryImpl(List<TravelTour> travelTourList) {
         this.travelTourList = travelTourList;
     }
 

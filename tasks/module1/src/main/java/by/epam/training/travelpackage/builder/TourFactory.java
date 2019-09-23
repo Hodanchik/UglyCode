@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 
 import java.util.Map;
 
-public class AbstractTourFactory {
-    private static final Logger log = Logger.getLogger(AbstractTourFactory.class);
+public class TourFactory {
+    private static final Logger log = Logger.getLogger(TourFactory.class);
     String tourType = "tourType";
 
 

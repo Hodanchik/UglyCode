@@ -1,39 +1,47 @@
 package by.epam.training.travelpackage.validator;
 
+import by.epam.training.travelpackage.entity.TourType;
 import org.apache.log4j.Logger;
 
 import java.util.Map;
+
 public class DataValidatorFactory {
     private static final Logger log = Logger.getLogger(DataValidatorFactory.class);
-    private String standartField = "tourType";
-    private ValidatorResult validatorResult;
+    private static final String MAIN_FIELD = "tourType";
     private int counterLine;
+    private TourType type;
 
-
-    public DataValidatorFactory(int counterLine, ValidatorResult validatorResult) {
-        this.validatorResult = validatorResult;
+    public DataValidatorFactory(int counterLine) {
         this.counterLine = counterLine;
     }
 
     public ValidatorResult validateDate(Map<String, String> dateParseMap) {
-        if (dateParseMap.containsKey(standartField)) {
-            switch (dateParseMap.get(standartField)) {
-                case "MEDICAL":
-                    return new MedicalTourValidator(validatorResult,counterLine).validate(dateParseMap);
-                case "RELAX":
-                    return new RelaxTourValidator(validatorResult,counterLine).validate(dateParseMap);
-                case "SHOP":
-                    return new ShopTourValidator(validatorResult,counterLine).validate(dateParseMap);
-                case "EXCURSION":
-                    return new ExcursionTourValidator(validatorResult,counterLine).validate(dateParseMap);
+        ValidatorResult validatorResult = new ValidatorResult();
+        if (dateParseMap.containsKey(MAIN_FIELD)) {
+            if (TourType.fromString(MAIN_FIELD).isPresent()) {
+                type = TourType.fromString(dateParseMap.get(MAIN_FIELD)).get();
+                switch (type) {
+                    case MEDICAL:
+                        return new MedicalTourValidator(counterLine).validate(dateParseMap);
+                    case RELAX:
+                        return new RelaxTourValidator(counterLine).validate(dateParseMap);
+                    case SHOP:
+                        return new ShopTourValidator(counterLine).validate(dateParseMap);
+                    case EXCURSION:
+                        return new ExcursionTourValidator(counterLine).validate(dateParseMap);
+                }
+                validatorResult.addResult(counterLine, "Incorrect value " + MAIN_FIELD);
+                log.warn("Incorrect value " + MAIN_FIELD);
+                return validatorResult;
+            } else {
+                validatorResult.addResult(counterLine, "Incorrect value " + MAIN_FIELD);
+                log.warn("Incorrect value " + MAIN_FIELD);
+                return validatorResult;
             }
-            validatorResult.addResult(counterLine, "Incorrect value tourType");
-            log.warn("Incorrect value TourType");
-            return validatorResult;
         } else {
-            validatorResult.addResult(counterLine, "Missing tourType field");
+            validatorResult.addResult(counterLine, "Missing field " + MAIN_FIELD);
             log.info("the required field is missing");
+            return validatorResult;
         }
-        return validatorResult;
     }
 }

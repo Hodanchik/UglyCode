@@ -1,4 +1,4 @@
-package by.epam.training.travelpackage.repository.specification;
+package by.epam.training.travelpackage.repository;
 
 public interface Specification<T> {
     boolean match(T entity);

@@ -2,6 +2,7 @@ package by.epam.training.travelpackage.repository.specification;
 
 import by.epam.training.travelpackage.entity.NutritionType;
 import by.epam.training.travelpackage.entity.TravelTour;
+import by.epam.training.travelpackage.repository.Specification;
 import org.apache.log4j.Logger;
 
 public class SelectByNutritionSpecification implements Specification<TravelTour> {

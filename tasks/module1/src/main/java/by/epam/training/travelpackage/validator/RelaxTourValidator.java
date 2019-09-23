@@ -2,78 +2,79 @@ package by.epam.training.travelpackage.validator;
 
 
 import by.epam.training.travelpackage.entity.HotelStarsType;
+import by.epam.training.travelpackage.validator.field.StandardRelaxField;
 import by.epam.training.travelpackage.validator.util.DataChecker;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class RelaxTourValidator extends TourValidator implements DataValidator {
     private static final Logger log = Logger.getLogger(RelaxTourValidator.class);
-    private List<String> standartRelaxTour = new ArrayList<>();
-    private ValidatorResult validatorResult;
     private int counterLine;
+    private StandardRelaxField relaxField;
 
-
-    public RelaxTourValidator(ValidatorResult validatorResult, int counterLine) {
-        super(validatorResult, counterLine);
-        this.validatorResult = validatorResult;
-        standartRelaxTour.add("country");
-        standartRelaxTour.add("hotCountry");
-        standartRelaxTour.add("haveSea");
-        standartRelaxTour.add("hotelStarsType");
+    public RelaxTourValidator( int counterLine) {
+        super(counterLine);
+        this.counterLine = counterLine;
     }
 
     @Override
     public ValidatorResult validate(Map<String, String> validateMap) {
-        commonValidate(validateMap);
-        for (String standartField : standartRelaxTour) {
-            if (validateMap.containsKey(standartField)) {
-                switch (standartField) {
-                    case "country":
-                        validateCountry(validateMap.get(standartField));
+        ValidatorResult validatorResult = commonValidate(validateMap);
+        if (validatorResult.isValidate()) {
+            for (String field : validateMap.keySet()) {
+                if (StandardRelaxField.fromString(field).isPresent()) {
+                    relaxField = StandardRelaxField.fromString(field).get();
+                    switch (relaxField) {
+                        case TOURTYPE:
+                        case PRICE:
+                        case DURATION:
+                        case NUTRITIONTYPE:
+                        case TRANSPORTTYPE:
+                            break;
+                        case COUNTRY:
+                        validateCountry(validateMap.get(field), validatorResult);
                         break;
-                    case "hotCountry":
-                        validateHotCountry(validateMap.get(standartField));
+                        case HOTCOUNTRY:
+                        validateHotCountry(validateMap.get(field), validatorResult);
                         break;
-                    case "haveSea":
-                        validateHaveSea(validateMap.get(standartField));
+                        case HAVESEA:
+                        validateHaveSea(validateMap.get(field), validatorResult);
                         break;
-                    case "hotelStarsType":
-                        validateHotelStars(validateMap.get(standartField));
+                        case HOTELSTARSTYPE:
+                        validateHotelStars(validateMap.get(field), validatorResult);
                         break;
+                    }
+                } else {
+                    log.warn("Incorrect field name in " + counterLine);
+                    validatorResult.addResult(counterLine, "Incorrect field name");
                 }
-            } else {
-                validatorResult.addResult(counterLine, "Uncorrect field name");
-                log.warn("RelaxTourValidator error uncorrect field name in " + counterLine);
             }
         }
         return validatorResult;
     }
-
-    public void validateCountry(String countryName) {
+    public void validateCountry(String countryName, ValidatorResult validatorResult) {
         if (!DataChecker.isCountry(countryName)) {
-            validatorResult.addResult(counterLine, "Uncorrect value field countryName");
-            log.warn("countryName in RelaxTour uncorrect value field in " + counterLine);
+            validatorResult.addResult(counterLine, "Incorrect value field countryName");
+            log.warn("Incorrect value field countryName in " + counterLine);
         }
     }
 
-    public void validateHotCountry(String hotCountry) {
+    public void validateHotCountry(String hotCountry,  ValidatorResult validatorResult) {
         if (!DataChecker.isBoolean(hotCountry)) {
-            validatorResult.addResult(counterLine, "Uncorrect value field hotCountry");
-            log.warn("hotCountry in RelaxTour uncorrect value field in " + counterLine);
+            validatorResult.addResult(counterLine, "Incorrect value field hotCountry");
+            log.warn("Incorrect value field hotCountry in " + counterLine);
         }
     }
 
-    public void validateHaveSea(String haveSea) {
+    public void validateHaveSea(String haveSea,  ValidatorResult validatorResult) {
         if (!DataChecker.isBoolean(haveSea)) {
-            validatorResult.addResult(counterLine, "Uncorrect value field haveSea");
-            log.warn("haveSea in RelaxTour uncorrect value field in " + counterLine);
+            validatorResult.addResult(counterLine, "Incorrect value field haveSea");
+            log.warn("Incorrect value field haveSea in " + counterLine);
         }
     }
 
-    public void validateHotelStars(String hotelStars) {
+    public void validateHotelStars(String hotelStars,  ValidatorResult validatorResult) {
         boolean flag = false;
         HotelStarsType[] hotelStarsArr = HotelStarsType.values();
         for (HotelStarsType type : hotelStarsArr) {
@@ -82,8 +83,8 @@ public class RelaxTourValidator extends TourValidator implements DataValidator {
             }
         }
         if (!flag) {
-            validatorResult.addResult(counterLine, "Uncorrect value field hotelStars");
-            log.warn("Uncorrect value field hotelStars in RelaxTour in " + counterLine);
+            validatorResult.addResult(counterLine, "Incorrect value field hotelStars");
+            log.warn("Incorrect value field hotelStars in " + counterLine);
         }
     }
 }

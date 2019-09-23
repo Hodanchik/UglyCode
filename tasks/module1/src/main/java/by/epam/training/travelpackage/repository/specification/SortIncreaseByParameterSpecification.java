@@ -1,14 +1,15 @@
 package by.epam.training.travelpackage.repository.specification;
 
 import by.epam.training.travelpackage.entity.TravelTour;
+import by.epam.training.travelpackage.repository.Specification;
 import org.apache.log4j.Logger;
 
-public class SortIncreasByParameterSpecification implements Specification<TravelTour> {
-    private static final Logger log = Logger.getLogger(SortIncreasByParameterSpecification.class);
+public class SortIncreaseByParameterSpecification implements Specification<TravelTour> {
+    private static final Logger log = Logger.getLogger(SortIncreaseByParameterSpecification.class);
 
     private final String parameter;
 
-    public SortIncreasByParameterSpecification(String parameter) {
+    public SortIncreaseByParameterSpecification(String parameter) {
         this.parameter = parameter;
     }
 
