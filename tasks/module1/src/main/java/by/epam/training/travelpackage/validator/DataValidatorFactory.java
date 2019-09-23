@@ -18,8 +18,9 @@ public class DataValidatorFactory {
     public ValidatorResult validateDate(Map<String, String> dateParseMap) {
         ValidatorResult validatorResult = new ValidatorResult();
         if (dateParseMap.containsKey(MAIN_FIELD)) {
-            if (TourType.fromString(MAIN_FIELD).isPresent()) {
-                type = TourType.fromString(dateParseMap.get(MAIN_FIELD)).get();
+            String typeString = dateParseMap.get(MAIN_FIELD);
+            if (TourType.fromString(typeString).isPresent()) {
+                type = TourType.fromString(typeString).get();
                 switch (type) {
                     case MEDICAL:
                         return new MedicalTourValidator(counterLine).validate(dateParseMap);
