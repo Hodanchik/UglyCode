@@ -4,50 +4,43 @@ import by.epam.training.travelpackage.entity.ExcursionTour;
 import by.epam.training.travelpackage.entity.NutritionType;
 import by.epam.training.travelpackage.entity.TransportType;
 import by.epam.training.travelpackage.entity.TravelTour;
+import by.epam.training.travelpackage.validator.field.StandardExcursionField;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class ExcursionTourBuilder implements TourBuilder {
-    List<String> standartExcursionTour = new ArrayList<>();
+    private StandardExcursionField excursionField;
 
 
     public ExcursionTourBuilder() {
-        standartExcursionTour.add("transportType");
-        standartExcursionTour.add("nutritionType");
-        standartExcursionTour.add("duration");
-        standartExcursionTour.add("price");
-        standartExcursionTour.add("countCountry");
-        standartExcursionTour.add("localGuide");
-        standartExcursionTour.add("nightMoving");
     }
 
     @Override
     public TravelTour buildTour(Map<String, String> validateMap) {
         ExcursionTour excursionTour = new ExcursionTour();
-        for (String standartField : standartExcursionTour) {
-            switch (standartField) {
-                case "transportType":
-                    excursionTour.setTransportType(TransportType.valueOf(validateMap.get(standartField)));
+        for (String field : validateMap.keySet()) {
+            excursionField = StandardExcursionField.fromString(field).get();
+            switch (excursionField) {
+                case TRANSPORTTYPE:
+                    excursionTour.setTransportType(TransportType.valueOf(validateMap.get(field)));
                     break;
-                case "nutritionType":
-                    excursionTour.setNutritionType(NutritionType.valueOf(validateMap.get(standartField)));
+                case NUTRITIONTYPE:
+                    excursionTour.setNutritionType(NutritionType.valueOf(validateMap.get(field)));
                     break;
-                case "duration":
-                    excursionTour.setDuration(Integer.parseInt(validateMap.get(standartField)));
+                case DURATION:
+                    excursionTour.setDuration(Integer.parseInt(validateMap.get(field)));
                     break;
-                case "price":
-                    excursionTour.setPrice(Double.parseDouble(validateMap.get(standartField)));
+                case PRICE:
+                    excursionTour.setPrice(Double.parseDouble(validateMap.get(field)));
                     break;
-                case "countCountry":
-                    excursionTour.setCountCountry(Integer.parseInt(validateMap.get(standartField)));
+                case COUNTCOUNTRY:
+                    excursionTour.setCountCountry(Integer.parseInt(validateMap.get(field)));
                     break;
-                case "localGuide":
-                    excursionTour.setLocalGuide(Boolean.parseBoolean(validateMap.get(standartField)));
+                case LOCALGUIDE:
+                    excursionTour.setLocalGuide(Boolean.parseBoolean(validateMap.get(field)));
                     break;
-                case "nightMoving":
-                    excursionTour.setNightMoving(Boolean.parseBoolean(validateMap.get(standartField)));
+                case NIGHTMOVING:
+                    excursionTour.setNightMoving(Boolean.parseBoolean(validateMap.get(field)));
                     break;
             }
         }

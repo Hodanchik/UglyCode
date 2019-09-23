@@ -1,53 +1,45 @@
 package by.epam.training.travelpackage.builder;
 
 import by.epam.training.travelpackage.entity.*;
+import by.epam.training.travelpackage.validator.field.StandardRelaxField;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class RelaxTourBuilder implements TourBuilder {
-    List<String> standartRelaxTour = new ArrayList<>();
+    private StandardRelaxField relaxField;
 
     public RelaxTourBuilder() {
-        standartRelaxTour.add("transportType");
-        standartRelaxTour.add("nutritionType");
-        standartRelaxTour.add("duration");
-        standartRelaxTour.add("price");
-        standartRelaxTour.add("country");
-        standartRelaxTour.add("hotCountry");
-        standartRelaxTour.add("haveSea");
-        standartRelaxTour.add("hotelStarsType");
     }
 
     @Override
     public TravelTour buildTour(Map<String, String> validateMap) {
         RelaxTour relaxTour = new RelaxTour();
-        for (String standartField : standartRelaxTour) {
-            switch (standartField) {
-                case "transportType":
-                    relaxTour.setTransportType(TransportType.valueOf(validateMap.get(standartField)));
+        for (String field : validateMap.keySet()) {
+            relaxField = StandardRelaxField.fromString(field).get();
+            switch (relaxField) {
+                case TRANSPORTTYPE:
+                    relaxTour.setTransportType(TransportType.valueOf(validateMap.get(field)));
                     break;
-                case "nutritionType":
-                    relaxTour.setNutritionType(NutritionType.valueOf(validateMap.get(standartField)));
+                case NUTRITIONTYPE:
+                    relaxTour.setNutritionType(NutritionType.valueOf(validateMap.get(field)));
                     break;
-                case "duration":
-                    relaxTour.setDuration(Integer.parseInt(validateMap.get(standartField)));
+                case DURATION:
+                    relaxTour.setDuration(Integer.parseInt(validateMap.get(field)));
                     break;
-                case "price":
-                    relaxTour.setPrice(Double.parseDouble(validateMap.get(standartField)));
+                case PRICE:
+                    relaxTour.setPrice(Double.parseDouble(validateMap.get(field)));
                     break;
-                case "country":
-                    relaxTour.setCountry(validateMap.get(standartField));
+                case COUNTRY:
+                    relaxTour.setCountry(validateMap.get(field));
                     break;
-                case "hotCountry":
-                    relaxTour.setHotCountry(Boolean.parseBoolean(validateMap.get(standartField)));
+                case HOTCOUNTRY:
+                    relaxTour.setHotCountry(Boolean.parseBoolean(validateMap.get(field)));
                     break;
-                case "haveSea":
-                    relaxTour.setHaveSea(Boolean.parseBoolean(validateMap.get(standartField)));
+                case HAVESEA:
+                    relaxTour.setHaveSea(Boolean.parseBoolean(validateMap.get(field)));
                     break;
-                case "hotelStarsType":
-                    relaxTour.setHotelStarsType(HotelStarsType.valueOf(validateMap.get(standartField)));
+                case HOTELSTARSTYPE:
+                    relaxTour.setHotelStarsType(HotelStarsType.valueOf(validateMap.get(field)));
                     break;
             }
         }

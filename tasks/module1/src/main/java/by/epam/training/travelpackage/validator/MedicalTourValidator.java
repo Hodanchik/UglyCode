@@ -10,6 +10,8 @@ public class MedicalTourValidator extends TourValidator implements DataValidator
     private static final Logger log = Logger.getLogger(MedicalTourValidator.class);
     private int counterLine;
     private StandardMedicalField medicalField;
+    private int numbField = StandardMedicalField.values().length;
+    private int countField;
 
     public MedicalTourValidator(int counterLine) {
         super(counterLine);
@@ -29,18 +31,25 @@ public class MedicalTourValidator extends TourValidator implements DataValidator
                         case DURATION:
                         case NUTRITIONTYPE:
                         case TRANSPORTTYPE:
+                            countField++;
                             break;
                         case MEDICALSUPPORT:
                             validateMedicalSupport(validateMap.get(field), validatorResult);
+                            countField++;
                             break;
                         case COUNTRY:
                             validateCountry(validateMap.get(field), validatorResult);
+                            countField++;
                             break;
                     }
                 } else {
                     log.warn("Incorrect field name in " + counterLine);
                     validatorResult.addResult(counterLine, "Incorrect field name");
                 }
+            }
+            if (countField != numbField) {
+                log.warn("Incorrect count of valid field in " + counterLine);
+                validatorResult.addResult(counterLine, "Incorrect count of valid field");
             }
         }
         return validatorResult;

@@ -10,6 +10,8 @@ public class ShopTourValidator extends TourValidator implements DataValidator {
     private static final Logger log = Logger.getLogger(ShopTourValidator.class);
     private int counterLine;
     private StandardShopField shopField;
+    private int numbField = StandardShopField.values().length;
+    private int countField;
 
     public ShopTourValidator(int counterLine) {
         super(counterLine);
@@ -27,20 +29,28 @@ public class ShopTourValidator extends TourValidator implements DataValidator {
                         case TOURTYPE:
                         case PRICE:
                         case DURATION:
-                        case NUTRITIONTYPE:
                         case TRANSPORTTYPE:
+                        case NUTRITIONTYPE:
+                            countField++;
                             break;
                         case COUNTRY:
                             validateCountry(validateMap.get(field), validatorResult);
+                            countField++;
                             break;
                         case VISITDUTYFREE:
                             validateVisitDutyFree(validateMap.get(field), validatorResult);
+                            countField++;
                             break;
                     }
+
                 } else {
                     log.warn("Incorrect field name in " + counterLine);
                     validatorResult.addResult(counterLine, "Incorrect field name");
                 }
+            }
+            if (countField != numbField) {
+                log.warn("Incorrect count of valid field in " + counterLine);
+                validatorResult.addResult(counterLine, "Incorrect count of valid field");
             }
         }
         return validatorResult;

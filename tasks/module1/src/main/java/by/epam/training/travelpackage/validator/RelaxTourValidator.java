@@ -12,8 +12,10 @@ public class RelaxTourValidator extends TourValidator implements DataValidator {
     private static final Logger log = Logger.getLogger(RelaxTourValidator.class);
     private int counterLine;
     private StandardRelaxField relaxField;
+    private int numbField = StandardRelaxField.values().length;
+    private int countField;
 
-    public RelaxTourValidator( int counterLine) {
+    public RelaxTourValidator(int counterLine) {
         super(counterLine);
         this.counterLine = counterLine;
     }
@@ -27,32 +29,42 @@ public class RelaxTourValidator extends TourValidator implements DataValidator {
                     relaxField = StandardRelaxField.fromString(field).get();
                     switch (relaxField) {
                         case TOURTYPE:
+                        case NUTRITIONTYPE:
                         case PRICE:
                         case DURATION:
-                        case NUTRITIONTYPE:
                         case TRANSPORTTYPE:
+                            countField++;
                             break;
                         case COUNTRY:
-                        validateCountry(validateMap.get(field), validatorResult);
-                        break;
+                            validateCountry(validateMap.get(field), validatorResult);
+                            countField++;
+                            break;
                         case HOTCOUNTRY:
-                        validateHotCountry(validateMap.get(field), validatorResult);
-                        break;
+                            validateHotCountry(validateMap.get(field), validatorResult);
+                            countField++;
+                            break;
                         case HAVESEA:
-                        validateHaveSea(validateMap.get(field), validatorResult);
-                        break;
+                            validateHaveSea(validateMap.get(field), validatorResult);
+                            countField++;
+                            break;
                         case HOTELSTARSTYPE:
-                        validateHotelStars(validateMap.get(field), validatorResult);
-                        break;
+                            validateHotelStars(validateMap.get(field), validatorResult);
+                            countField++;
+                            break;
                     }
                 } else {
                     log.warn("Incorrect field name in " + counterLine);
                     validatorResult.addResult(counterLine, "Incorrect field name");
                 }
             }
+            if (countField != numbField) {
+                log.warn("Incorrect count of valid field in " + counterLine);
+                validatorResult.addResult(counterLine, "Incorrect count of valid field");
+            }
         }
         return validatorResult;
     }
+
     public void validateCountry(String countryName, ValidatorResult validatorResult) {
         if (!DataChecker.isCountry(countryName)) {
             validatorResult.addResult(counterLine, "Incorrect value field countryName");
@@ -60,21 +72,21 @@ public class RelaxTourValidator extends TourValidator implements DataValidator {
         }
     }
 
-    public void validateHotCountry(String hotCountry,  ValidatorResult validatorResult) {
+    public void validateHotCountry(String hotCountry, ValidatorResult validatorResult) {
         if (!DataChecker.isBoolean(hotCountry)) {
             validatorResult.addResult(counterLine, "Incorrect value field hotCountry");
             log.warn("Incorrect value field hotCountry in " + counterLine);
         }
     }
 
-    public void validateHaveSea(String haveSea,  ValidatorResult validatorResult) {
+    public void validateHaveSea(String haveSea, ValidatorResult validatorResult) {
         if (!DataChecker.isBoolean(haveSea)) {
             validatorResult.addResult(counterLine, "Incorrect value field haveSea");
             log.warn("Incorrect value field haveSea in " + counterLine);
         }
     }
 
-    public void validateHotelStars(String hotelStars,  ValidatorResult validatorResult) {
+    public void validateHotelStars(String hotelStars, ValidatorResult validatorResult) {
         boolean flag = false;
         HotelStarsType[] hotelStarsArr = HotelStarsType.values();
         for (HotelStarsType type : hotelStarsArr) {

@@ -1,45 +1,42 @@
 package by.epam.training.travelpackage.builder;
 
-import by.epam.training.travelpackage.entity.*;
+import by.epam.training.travelpackage.entity.MedicalTour;
+import by.epam.training.travelpackage.entity.NutritionType;
+import by.epam.training.travelpackage.entity.TransportType;
+import by.epam.training.travelpackage.entity.TravelTour;
+import by.epam.training.travelpackage.validator.field.StandardMedicalField;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class MedicalTourBuilder implements TourBuilder {
-    List<String> standartMedicalTour = new ArrayList<>();
+    private StandardMedicalField medicalField;
 
     public MedicalTourBuilder() {
-        standartMedicalTour.add("transportType");
-        standartMedicalTour.add("nutritionType");
-        standartMedicalTour.add("duration");
-        standartMedicalTour.add("price");
-        standartMedicalTour.add("medicalSupport");
-        standartMedicalTour.add("country");
     }
 
     @Override
     public TravelTour buildTour(Map<String, String> validateMap) {
         MedicalTour medicalTour = new MedicalTour();
-        for (String standartField : standartMedicalTour) {
-            switch (standartField) {
-                case "transportType":
-                    medicalTour.setTransportType(TransportType.valueOf(validateMap.get(standartField)));
+        for (String field : validateMap.keySet()) {
+            medicalField = StandardMedicalField.fromString(field).get();
+            switch (medicalField) {
+                case TRANSPORTTYPE:
+                    medicalTour.setTransportType(TransportType.valueOf(validateMap.get(field)));
                     break;
-                case "nutritionType":
-                    medicalTour.setNutritionType(NutritionType.valueOf(validateMap.get(standartField)));
+                case NUTRITIONTYPE:
+                    medicalTour.setNutritionType(NutritionType.valueOf(validateMap.get(field)));
                     break;
-                case "duration":
-                    medicalTour.setDuration(Integer.parseInt(validateMap.get(standartField)));
+                case DURATION:
+                    medicalTour.setDuration(Integer.parseInt(validateMap.get(field)));
                     break;
-                case "price":
-                    medicalTour.setPrice(Double.parseDouble(validateMap.get(standartField)));
+                case PRICE:
+                    medicalTour.setPrice(Double.parseDouble(validateMap.get(field)));
                     break;
-                case "medicalSupport":
-                    medicalTour.setMedicalSupport(Boolean.parseBoolean(validateMap.get(standartField)));
+                case MEDICALSUPPORT:
+                    medicalTour.setMedicalSupport(Boolean.parseBoolean(validateMap.get(field)));
                     break;
-                case "country":
-                    medicalTour.setCountry(validateMap.get(standartField));
+                case COUNTRY:
+                    medicalTour.setCountry(validateMap.get(field));
                     break;
             }
         }

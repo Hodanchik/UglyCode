@@ -12,6 +12,8 @@ public class ExcursionTourValidator extends TourValidator implements DataValidat
     private StandardExcursionField excursionField;
     private static final int MIN_COUNT_COUNTRY = 1;
     private int MAX_COUNT_COUNTRY = 197;
+    private int numbField = StandardExcursionField.values().length;
+    private int countField;
 
     public ExcursionTourValidator(int counterLine) {
         super(counterLine);
@@ -31,15 +33,19 @@ public class ExcursionTourValidator extends TourValidator implements DataValidat
                         case DURATION:
                         case NUTRITIONTYPE:
                         case TRANSPORTTYPE:
+                            countField++;
                             break;
                         case COUNTCOUNTRY:
                             validateCountCountry(validateMap.get(field), validatorResult);
+                            countField++;
                             break;
                         case LOCALGUIDE:
                             validateLocalGuide(validateMap.get(field), validatorResult);
+                            countField++;
                             break;
                         case NIGHTMOVING:
                             validateNightMoving(validateMap.get(field), validatorResult);
+                            countField++;
                             break;
                     }
                 } else {
@@ -47,6 +53,10 @@ public class ExcursionTourValidator extends TourValidator implements DataValidat
                     validatorResult.addResult(counterLine, "Incorrect field name");
                 }
             }
+        }
+        if (countField != numbField) {
+            log.warn("Incorrect count of valid field in " + counterLine);
+            validatorResult.addResult(counterLine, "Incorrect count of valid field");
         }
         return validatorResult;
     }

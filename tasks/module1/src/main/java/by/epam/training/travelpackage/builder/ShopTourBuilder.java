@@ -1,45 +1,42 @@
 package by.epam.training.travelpackage.builder;
 
-import by.epam.training.travelpackage.entity.*;
+import by.epam.training.travelpackage.entity.NutritionType;
+import by.epam.training.travelpackage.entity.ShopTour;
+import by.epam.training.travelpackage.entity.TransportType;
+import by.epam.training.travelpackage.entity.TravelTour;
+import by.epam.training.travelpackage.validator.field.StandardShopField;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class ShopTourBuilder implements TourBuilder {
-    List<String> standartShopTour = new ArrayList<>();
+    private StandardShopField shopField;
 
     public ShopTourBuilder() {
-        standartShopTour.add("transportType");
-        standartShopTour.add("nutritionType");
-        standartShopTour.add("duration");
-        standartShopTour.add("price");
-        standartShopTour.add("country");
-        standartShopTour.add("visitDutyFree");
     }
 
     @Override
     public TravelTour buildTour(Map<String, String> validateMap) {
         ShopTour shopTour = new ShopTour();
-        for (String standartField : standartShopTour) {
-            switch (standartField) {
-                case "transportType":
-                    shopTour.setTransportType(TransportType.valueOf(validateMap.get(standartField)));
+        for (String field : validateMap.keySet()) {
+            shopField = StandardShopField.fromString(field).get();
+            switch (shopField) {
+                case TRANSPORTTYPE:
+                    shopTour.setTransportType(TransportType.valueOf(validateMap.get(field)));
                     break;
-                case "nutritionType":
-                    shopTour.setNutritionType(NutritionType.valueOf(validateMap.get(standartField)));
+                case NUTRITIONTYPE:
+                    shopTour.setNutritionType(NutritionType.valueOf(validateMap.get(field)));
                     break;
-                case "duration":
-                    shopTour.setDuration(Integer.parseInt(validateMap.get(standartField)));
+                case DURATION:
+                    shopTour.setDuration(Integer.parseInt(validateMap.get(field)));
                     break;
-                case "price":
-                    shopTour.setPrice(Double.parseDouble(validateMap.get(standartField)));
+                case PRICE:
+                    shopTour.setPrice(Double.parseDouble(validateMap.get(field)));
                     break;
-                case "country":
-                    shopTour.setCountry(validateMap.get(standartField));
+                case COUNTRY:
+                    shopTour.setCountry(validateMap.get(field));
                     break;
-                case "visitDutyFree":
-                    shopTour.setVisitDutyFree(Boolean.parseBoolean(validateMap.get(standartField)));
+                case VISITDUTYFREE:
+                    shopTour.setVisitDutyFree(Boolean.parseBoolean(validateMap.get(field)));
                     break;
             }
         }
