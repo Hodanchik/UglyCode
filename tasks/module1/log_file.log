@@ -1,0 +1,204 @@
+2019-09-23 21:40:32 ERROR FileValidator:25 - Nonexistent path to file
+2019-09-23 21:40:32 WARN  TourController:36 - File is not validate
+2019-09-23 21:40:32 WARN  TourValidator:58 - Incorrect value field transportType in 1
+2019-09-23 21:40:32 WARN  TourValidator:72 - Incorrect value field nutritionType in 2
+2019-09-23 21:40:32 WARN  RelaxTourValidator:71 - Incorrect value field countryName in 3
+2019-09-23 21:40:32 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:40:32 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:40:32 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:40:32 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:40:32 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:40:32 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:40:32 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:40:32 WARN  DataReader:29 - Incorrect field:value in 1 line
+2019-09-23 21:40:32 WARN  DataReader:29 - Incorrect field:value in 1 line
+2019-09-23 21:40:32 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:40:32 WARN  DataReader:29 - Incorrect field:value in 2 line
+2019-09-23 21:40:32 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:40:32 WARN  DataReader:29 - Incorrect field:value in 3 line
+2019-09-23 21:40:32 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:40:32 WARN  DataReader:29 - Incorrect field:value in 4 line
+2019-09-23 21:40:32 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:40:32 WARN  DataReader:29 - Incorrect field:value in 5 line
+2019-09-23 21:40:32 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:40:32 WARN  RelaxTourValidator:61 - Incorrect count of valid field in 4
+2019-09-23 21:40:32 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 5
+2019-09-23 21:40:32 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 6
+2019-09-23 21:40:32 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 7
+2019-09-23 21:40:32 WARN  ShopTourValidator:52 - Incorrect count of valid field in 8
+2019-09-23 21:40:32 WARN  ShopTourValidator:52 - Incorrect count of valid field in 9
+2019-09-23 21:41:53 ERROR FileValidator:25 - Nonexistent path to file
+2019-09-23 21:41:53 WARN  TourController:36 - File is not validate
+2019-09-23 21:41:53 WARN  TourValidator:58 - Incorrect value field transportType in 1
+2019-09-23 21:41:53 WARN  TourValidator:72 - Incorrect value field nutritionType in 2
+2019-09-23 21:41:53 WARN  RelaxTourValidator:71 - Incorrect value field countryName in 3
+2019-09-23 21:41:53 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:41:53 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:41:53 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:41:53 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:41:53 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:41:53 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:41:53 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:41:53 WARN  DataReader:29 - Incorrect field:value in 1 line
+2019-09-23 21:41:53 WARN  DataReader:29 - Incorrect field:value in 1 line
+2019-09-23 21:41:53 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:41:53 WARN  DataReader:29 - Incorrect field:value in 2 line
+2019-09-23 21:41:53 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:41:53 WARN  DataReader:29 - Incorrect field:value in 3 line
+2019-09-23 21:41:53 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:41:53 WARN  DataReader:29 - Incorrect field:value in 4 line
+2019-09-23 21:41:53 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:41:53 WARN  DataReader:29 - Incorrect field:value in 5 line
+2019-09-23 21:41:53 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:41:53 WARN  RelaxTourValidator:61 - Incorrect count of valid field in 4
+2019-09-23 21:41:53 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 5
+2019-09-23 21:41:53 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 6
+2019-09-23 21:41:53 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 7
+2019-09-23 21:41:53 WARN  ShopTourValidator:52 - Incorrect count of valid field in 8
+2019-09-23 21:41:53 WARN  ShopTourValidator:52 - Incorrect count of valid field in 9
+2019-09-23 21:42:50 ERROR FileValidator:25 - Nonexistent path to file
+2019-09-23 21:42:50 WARN  TourController:36 - File is not validate
+2019-09-23 21:42:50 WARN  TourValidator:58 - Incorrect value field transportType in 1
+2019-09-23 21:42:50 WARN  TourValidator:72 - Incorrect value field nutritionType in 2
+2019-09-23 21:42:50 WARN  RelaxTourValidator:71 - Incorrect value field countryName in 3
+2019-09-23 21:42:50 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:42:50 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:42:50 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:42:50 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:42:50 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:42:50 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:42:50 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-23 21:42:50 WARN  DataReader:29 - Incorrect field:value in 1 line
+2019-09-23 21:42:50 WARN  DataReader:29 - Incorrect field:value in 1 line
+2019-09-23 21:42:50 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:42:50 WARN  DataReader:29 - Incorrect field:value in 2 line
+2019-09-23 21:42:50 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:42:50 WARN  DataReader:29 - Incorrect field:value in 3 line
+2019-09-23 21:42:50 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:42:50 WARN  DataReader:29 - Incorrect field:value in 4 line
+2019-09-23 21:42:50 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:42:50 WARN  DataReader:29 - Incorrect field:value in 5 line
+2019-09-23 21:42:50 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-23 21:42:50 WARN  RelaxTourValidator:61 - Incorrect count of valid field in 4
+2019-09-23 21:42:50 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 5
+2019-09-23 21:42:50 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 6
+2019-09-23 21:42:50 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 7
+2019-09-23 21:42:50 WARN  ShopTourValidator:52 - Incorrect count of valid field in 8
+2019-09-23 21:42:50 WARN  ShopTourValidator:52 - Incorrect count of valid field in 9
+2019-09-24 23:20:08 WARN  RelaxTourValidator:61 - Incorrect count of valid field in 4
+2019-09-24 23:20:08 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 5
+2019-09-24 23:20:08 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 6
+2019-09-24 23:20:08 WARN  ExcursionTourValidator:58 - Incorrect count of valid field in 7
+2019-09-24 23:20:08 WARN  ShopTourValidator:52 - Incorrect count of valid field in 8
+2019-09-24 23:20:08 WARN  ShopTourValidator:52 - Incorrect count of valid field in 9
+2019-09-24 23:20:08 WARN  TourValidator:58 - Incorrect value field transportType in 1
+2019-09-24 23:20:08 WARN  TourValidator:72 - Incorrect value field nutritionType in 2
+2019-09-24 23:20:08 WARN  RelaxTourValidator:71 - Incorrect value field countryName in 3
+2019-09-24 23:20:08 WARN  DataReader:29 - Incorrect field:value in 1 line
+2019-09-24 23:20:08 WARN  DataReader:29 - Incorrect field:value in 1 line
+2019-09-24 23:20:08 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-24 23:20:08 WARN  DataReader:29 - Incorrect field:value in 2 line
+2019-09-24 23:20:08 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-24 23:20:08 WARN  DataReader:29 - Incorrect field:value in 3 line
+2019-09-24 23:20:08 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-24 23:20:08 WARN  DataReader:29 - Incorrect field:value in 4 line
+2019-09-24 23:20:08 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-24 23:20:08 WARN  DataReader:29 - Incorrect field:value in 5 line
+2019-09-24 23:20:08 INFO  DataValidatorFactory:44 - the required field is missing
+2019-09-24 23:20:08 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-24 23:20:08 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-24 23:20:08 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-24 23:20:08 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-24 23:20:08 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-24 23:20:08 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-24 23:20:08 WARN  DataValidatorFactory:39 - Incorrect value tourType
+2019-09-24 23:20:08 ERROR FileValidator:25 - Nonexistent path to file
+2019-09-24 23:20:08 WARN  TourController:36 - File is not validate
+2019-09-25 23:31:45 WARN  TourValidator:65 - Incorrect value field transportType
+2019-09-25 23:31:45 WARN  TourValidator:79 - Incorrect value field nutritionType
+2019-09-25 23:31:45 WARN  RelaxTourValidator:51 - Incorrect value field countryName
+2019-09-25 23:31:45 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:31:45 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:31:45 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:31:45 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:31:45 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:31:45 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:31:45 ERROR FileValidator:22 - Nonexistent path to file
+2019-09-25 23:31:45 WARN  TourController:50 - File is not validate
+2019-09-25 23:32:02 WARN  TourValidator:65 - Incorrect value field transportType
+2019-09-25 23:32:02 WARN  TourValidator:79 - Incorrect value field nutritionType
+2019-09-25 23:32:02 WARN  RelaxTourValidator:51 - Incorrect value field countryName
+2019-09-25 23:32:02 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:02 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:02 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:02 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:02 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:02 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:02 ERROR FileValidator:22 - Nonexistent path to file
+2019-09-25 23:32:02 WARN  TourController:50 - File is not validate
+2019-09-25 23:32:12 WARN  TourValidator:65 - Incorrect value field transportType
+2019-09-25 23:32:12 WARN  TourValidator:79 - Incorrect value field nutritionType
+2019-09-25 23:32:12 WARN  RelaxTourValidator:51 - Incorrect value field countryName
+2019-09-25 23:32:12 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:12 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:12 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:12 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:12 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:12 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:32:12 ERROR FileValidator:22 - Nonexistent path to file
+2019-09-25 23:32:12 WARN  TourController:50 - File is not validate
+2019-09-25 23:35:22 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:22 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:22 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:22 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:22 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:22 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:22 WARN  TourValidator:65 - Incorrect value field transportType
+2019-09-25 23:35:22 WARN  TourValidator:79 - Incorrect value field nutritionType
+2019-09-25 23:35:22 WARN  RelaxTourValidator:51 - Incorrect value field countryName
+2019-09-25 23:35:22 ERROR FileValidator:22 - Nonexistent path to file
+2019-09-25 23:35:22 WARN  TourController:50 - File is not validate
+2019-09-25 23:35:39 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:39 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:39 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:39 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:39 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:39 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:39 WARN  TourValidator:65 - Incorrect value field transportType
+2019-09-25 23:35:39 WARN  TourValidator:79 - Incorrect value field nutritionType
+2019-09-25 23:35:39 WARN  RelaxTourValidator:51 - Incorrect value field countryName
+2019-09-25 23:35:39 ERROR FileValidator:22 - Nonexistent path to file
+2019-09-25 23:35:39 WARN  TourController:50 - File is not validate
+2019-09-25 23:35:51 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:51 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:51 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:51 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:51 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:51 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:35:51 WARN  TourValidator:65 - Incorrect value field transportType
+2019-09-25 23:35:51 WARN  TourValidator:79 - Incorrect value field nutritionType
+2019-09-25 23:35:51 WARN  RelaxTourValidator:51 - Incorrect value field countryName
+2019-09-25 23:35:51 ERROR FileValidator:22 - Nonexistent path to file
+2019-09-25 23:35:51 WARN  TourController:50 - File is not validate
+2019-09-25 23:40:48 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:40:48 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:40:48 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:40:48 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:40:48 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:40:48 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:40:48 WARN  TourValidator:65 - Incorrect value field transportType
+2019-09-25 23:40:48 WARN  TourValidator:79 - Incorrect value field nutritionType
+2019-09-25 23:40:48 WARN  RelaxTourValidator:51 - Incorrect value field countryName
+2019-09-25 23:40:48 ERROR FileValidator:22 - Nonexistent path to file
+2019-09-25 23:40:48 WARN  TourController:50 - File is not validate
+2019-09-25 23:43:34 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:43:34 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:43:34 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:43:34 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:43:34 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:43:34 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-25 23:43:34 WARN  TourValidator:65 - Incorrect value field transportType
+2019-09-25 23:43:34 WARN  TourValidator:79 - Incorrect value field nutritionType
+2019-09-25 23:43:34 WARN  RelaxTourValidator:51 - Incorrect value field countryName
+2019-09-25 23:43:34 ERROR FileValidator:22 - Nonexistent path to file
+2019-09-25 23:43:34 WARN  TourController:50 - File is not validate
