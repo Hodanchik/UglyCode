@@ -1,6 +1,6 @@
 package by.epam.training.travelagency.controller;
 
-import by.epam.training.travelagency.builder.TourFactory;
+import by.epam.training.travelagency.builder.TourBuilderFactory;
 import by.epam.training.travelagency.parser.LineParser;
 import by.epam.training.travelagency.service.TravelTourService;
 import by.epam.training.travelagency.validator.*;
@@ -40,7 +40,7 @@ public class TourController {
                     validatorResult = tourValidatorFactory
                             .getValidatorByType(dataMap.get("tourType")).validate(dataMap);
                     if (validatorResult.isValidate()) {
-                        travelTourService.saveTour(new TourFactory()
+                        travelTourService.saveTour(new TourBuilderFactory()
                                 .getBuilderByType(dataMap.get("tourType")).buildTour(dataMap));
                     }
                     count++;

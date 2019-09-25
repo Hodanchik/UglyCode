@@ -3,8 +3,8 @@ package by.epam.training.travelagency.builder;
 import by.epam.training.travelagency.entity.TourType;
 import org.apache.log4j.Logger;
 
-public class TourFactory {
-    private static final Logger log = Logger.getLogger(TourFactory.class);
+public class TourBuilderFactory {
+    private static final Logger log = Logger.getLogger(TourBuilderFactory.class);
     private static final String MAIN_FIELD = "tourType";
 
     public TourBuilder getBuilderByType(String type) {
