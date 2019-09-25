@@ -6,3 +6,5 @@ EXCURSION,transportType:BUS,nutritionType:BB,duration:4,price:129.99,countCountr
 tourType:EXCURSION,transportType:CRUISE_SHIP,nutritionType:BB,duration:3,price:329.99,countCountry:3,localGuide:true,nightMoving:false
 tourType:EXCURSION,transportType:BUS,nutritionType:BB,duration:7,price:529.99,countCountry:4,localGuide:false,nightMoving:true
 tourType:SHOP,transportType:BUS,nutritionType:RO,duration:2,price:89.99,country:Russia,visitDutyFree:false
+tourType:MEDICAL,transportType:TRAIN,nutritionType:RO,duration:17,price:1200,medicalSupport:false,country:Belarus
+tourType:RELAX,transportType:BUS,nutritionType:AIP,duration:9,price:1877.99,country:Malta,hotCountry:true,haveSea:true,hotelStarsType:FOUR

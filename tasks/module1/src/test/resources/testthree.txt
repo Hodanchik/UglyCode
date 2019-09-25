@@ -3,3 +3,5 @@ tourType:MEDICAL,transportType:TRAIN,nutritionType:EATALLDAYALLNIGHT,duration:17
 tourType:RELAX,transportType:BUS,nutritionType:AIP,duration:9,price:1877.99,country:ZIMBABABABABABVA,hotCountry:true,haveSea:true,hotelStarsType:FOUR
 tourType:SHOP,transportType:BUS,nutritionType:RO,duration:2,price:89.99,country:Russia,visitDutyFree:false
 tourType:SHOP,transportType:BUS,nutritionType:RO,duration:2,price:79.99,country:Poland,visitDutyFree:true
+tourType:MEDICAL,transportType:TRAIN,nutritionType:RO,duration:17,price:1200,medicalSupport:false,country:Belarus
+tourType:MEDICAL,transportType:TRAIN,nutritionType:RO,duration:13,price:1798.99,medicalSupport:true,country:Russia
