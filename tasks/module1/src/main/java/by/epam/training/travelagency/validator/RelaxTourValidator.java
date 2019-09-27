@@ -10,10 +10,10 @@ import java.util.Map;
 
 public class RelaxTourValidator extends TourValidator implements DataValidator {
     private static final Logger log = Logger.getLogger(RelaxTourValidator.class);
+    ValidatorResult validatorResult  = new ValidatorResult();
 
     @Override
     protected ValidatorResult specificFieldValidate(Map<String, String> validateMap) {
-        ValidatorResult validatorResult = commonValidate(validateMap);
         if (validateMap.size() != StandardRelaxField.values().length) {
             validatorResult.addResult("RelaxTour", "Incorrect count of fields");
             return validatorResult;

@@ -10,10 +10,10 @@ public class ExcursionTourValidator extends TourValidator implements DataValidat
     private static final Logger log = Logger.getLogger(ExcursionTourValidator.class);
     private static final int MIN_COUNT_COUNTRY = 1;
     private static final int MAX_COUNT_COUNTRY = 197;
+    ValidatorResult validatorResult  = new ValidatorResult();
 
     @Override
     protected ValidatorResult specificFieldValidate(Map<String, String> validateMap) {
-        ValidatorResult validatorResult = commonValidate(validateMap);
         if (validateMap.size() != StandardExcursionField.values().length) {
             validatorResult.addResult("ExcursionTour", "Incorrect count of fields");
             return validatorResult;

@@ -28,7 +28,7 @@ public abstract class TourValidator implements DataValidator {
 
     protected abstract ValidatorResult specificFieldValidate(Map<String, String> validateMap);
 
-    ValidatorResult commonValidate(Map<String, String> validateMap) {
+    private ValidatorResult commonValidate(Map<String, String> validateMap) {
         ValidatorResult validatorResult = new ValidatorResult();
         for (String field : validateMap.keySet()) {
             if (StandardTourField.fromString(field).isPresent()) {

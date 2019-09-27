@@ -8,10 +8,10 @@ import java.util.Map;
 
 public class MedicalTourValidator extends TourValidator implements DataValidator {
     private static final Logger log = Logger.getLogger(MedicalTourValidator.class);
+    ValidatorResult validatorResult  = new ValidatorResult();
 
     @Override
     protected ValidatorResult specificFieldValidate(Map<String, String> validateMap) {
-        ValidatorResult validatorResult = new ValidatorResult();
         if (validateMap.size() != StandardMedicalField.values().length) {
             validatorResult.addResult("MedicalTour", "Incorrect count of fields");
             return validatorResult;

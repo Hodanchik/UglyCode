@@ -202,3 +202,14 @@
 2019-09-25 23:43:34 WARN  RelaxTourValidator:51 - Incorrect value field countryName
 2019-09-25 23:43:34 ERROR FileValidator:22 - Nonexistent path to file
 2019-09-25 23:43:34 WARN  TourController:50 - File is not validate
+2019-09-28 00:33:06 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-28 00:33:06 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-28 00:33:06 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-28 00:33:06 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-28 00:33:06 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-28 00:33:06 WARN  DataReader:26 - Incorrect field:value in 0 line
+2019-09-28 00:33:06 WARN  TourValidator:65 - Incorrect value field transportType
+2019-09-28 00:33:06 WARN  TourValidator:79 - Incorrect value field nutritionType
+2019-09-28 00:33:06 WARN  RelaxTourValidator:51 - Incorrect value field countryName
+2019-09-28 00:33:06 ERROR FileValidator:22 - Nonexistent path to file
+2019-09-28 00:33:06 WARN  TourController:50 - File is not validate
