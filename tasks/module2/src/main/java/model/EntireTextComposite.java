@@ -3,7 +3,7 @@ package model;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Text implements TextComposite {
+public class EntireTextComposite implements TextComposite {
     List<TextLeaf> text = new LinkedList<>();
 
     @Override

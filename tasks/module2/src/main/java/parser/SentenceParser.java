@@ -1,30 +1,29 @@
 package parser;
 
 import model.EntireTextComposite;
-import model.ParagraphСomposite;
 import model.TextComposite;
 import model.TextLeaf;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ParagraphParser extends TextParser {
-    private String regexParagraph = "(\\t)(.+)(\\n?)?";
-    private Pattern pattern = Pattern.compile(regexParagraph);
+public class SentenceParser extends TextParser {
+    String regexSentence = "([A-Z]{1})(.)+?([\\.\\!\\?]+)(\\n+)?";
+    private Pattern pattern = Pattern.compile(regexSentence);
+    private Matcher matcher;
 
     @Override
     public TextLeaf parse(String text) {
-        Matcher matcher = pattern.matcher(text);
+        matcher = pattern.matcher(text);
         TextComposite parseText = new EntireTextComposite();
         while (matcher.find()) {
-            ParagraphСomposite paragraphСomposite = new ParagraphСomposite();
-            paragraphСomposite.addText(nextParse(matcher.group()));
-            parseText.addText(paragraphСomposite);
+            parseText.addText(nextParse(matcher.group()));
         }
         if (parseText.getText().isEmpty()) {
             parseText.addText(nextParse(text));
         }
+
         return parseText;
     }
-}
 
+}

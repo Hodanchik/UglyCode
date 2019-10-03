@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ParagraphСomposite implements TextComposite {
-    List<TextLeaf> paragraph = new LinkedList<>();
+    private List<TextLeaf> paragraph = new LinkedList<>();
 
     @Override
     public void addText(TextLeaf textLeaf) {
