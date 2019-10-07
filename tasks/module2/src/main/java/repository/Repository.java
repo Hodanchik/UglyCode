@@ -1,8 +1,9 @@
 package repository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface Repository<T> {
-    void add(T entity);
-    void remove(T entity);
+    long add(T entity);
+    Optional<T> findTextLeaf(Specification<T> spec);
 }

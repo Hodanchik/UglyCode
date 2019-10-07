@@ -1,3 +1,16 @@
 2019-10-03 16:22:17 ERROR FileValidator:27 - Nonexistent path to file
 2019-10-03 16:28:46 ERROR FileValidator:27 - Nonexistent path to file
 2019-10-03 16:30:44 ERROR FileValidator:37 - Incorrect file format
+2019-10-04 03:01:32 ERROR FileValidator:27 - Nonexistent path to file
+2019-10-04 03:01:32 ERROR FileValidator:37 - Incorrect file format
+2019-10-04 03:02:05 ERROR FileValidator:27 - Nonexistent path to file
+2019-10-04 03:02:05 ERROR FileValidator:37 - Incorrect file format
+2019-10-06 21:25:50 ERROR WordService:30 - Incorrect data in textId
+2019-10-06 21:33:52 ERROR WordService:30 - Incorrect data in textId
+2019-10-06 21:37:42 ERROR WordService:30 - Incorrect data in textId
+2019-10-06 21:42:12 ERROR WordService:34 - Incorrect data in textId
+2019-10-06 21:43:57 ERROR WordService:34 - Incorrect data in textId
+2019-10-06 21:47:11 ERROR WordService:34 - Incorrect data in textId
+2019-10-06 21:53:32 ERROR WordService:34 - Incorrect data in textId
+2019-10-06 21:53:38 ERROR WordService:34 - Incorrect data in textId
+2019-10-07 00:34:00 ERROR WordService:34 - Incorrect data in textId

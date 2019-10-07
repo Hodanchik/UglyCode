@@ -1,7 +1,7 @@
 package parser;
 
 import model.EntireTextComposite;
-import model.ParagraphСomposite;
+import model.ParagraphComposite;
 import model.TextComposite;
 import model.TextLeaf;
 
@@ -17,9 +17,9 @@ public class ParagraphParser extends TextParser {
         Matcher matcher = pattern.matcher(text);
         TextComposite parseText = new EntireTextComposite();
         while (matcher.find()) {
-            ParagraphСomposite paragraphСomposite = new ParagraphСomposite();
-            paragraphСomposite.addText(nextParse(matcher.group()));
-            parseText.addText(paragraphСomposite);
+            ParagraphComposite paragraphComposite = new ParagraphComposite();
+            paragraphComposite.addText(nextParse(matcher.group()));
+            parseText.addText(paragraphComposite);
         }
         if (parseText.getText().isEmpty()) {
             parseText.addText(nextParse(text));

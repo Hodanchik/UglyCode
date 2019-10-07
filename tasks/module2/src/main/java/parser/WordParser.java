@@ -1,5 +1,7 @@
 package parser;
 
+import entity.Sentence;
+import entity.Word;
 import model.SentenceComposite;
 import model.TextLeaf;
 import model.WordLeaf;
@@ -15,10 +17,12 @@ public class WordParser extends TextParser {
     @Override
     public TextLeaf parse(String text) {
         matcher = pattern.matcher(text);
-        SentenceComposite sentenceComposite = new SentenceComposite();
-        sentenceComposite.setNewLine(parseNewLine(text));
+        Sentence sentence = new Sentence();
+        sentence.setNewLine(parseNewLine(text));
+        SentenceComposite sentenceComposite = new SentenceComposite(sentence);
         while (matcher.find()) {
-            WordLeaf wordLeaf = new WordLeaf(matcher.group(1), matcher.group(2), matcher.group(4));
+            Word word = new Word(matcher.group(1), matcher.group(2), matcher.group(4));
+            WordLeaf wordLeaf = new WordLeaf(word);
             sentenceComposite.addText(wordLeaf);
         }
         return sentenceComposite;
